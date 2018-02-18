@@ -1,0 +1,58 @@
+source $HOME/.localrc
+
+# Shortcut to this dotfiles path is $ZSH
+export ZSH=$HOME/.dotfiles
+
+# Your project folder that we can `c [tab]` to
+export PROJECTS=~/Dev
+
+# Initialize autocomplete here, otherwise functions won't be loaded
+autoload -Uz compinit && compinit
+zmodload -i zsh/complist
+
+# A better `mv`
+autoload -U zmv
+
+# All of our zsh files
+typeset -U config_files
+config_files=($ZSH/**/*.zsh)
+
+# Load the path files
+for file in ${(M)config_files:#*/path.zsh}; do
+  source $file
+done
+
+# Load everything but the path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
+  source $file
+done
+
+# Load every completion after autocomplete loads
+for file in ${(M)config_files:#*/completion.zsh}; do
+  source $file
+done
+
+unset config_files
+
+# Enable zsh syntax highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit's installer chunk
+
+# zinit plugins
+zinit ice atload"zpcdreplay" atclone'./zplug.zsh'
+zinit light g-plane/zsh-yarn-autocompletions

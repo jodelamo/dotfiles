@@ -1,0 +1,11 @@
+name: retail-pim-admin
+root: ~/Dev/retail-pim-admin
+
+windows:
+  - editor: vim
+  - server: yarn dev
+  - services:
+      layout: even-horizontal
+      root: ~/Dev/retail-pim-admin/tools
+      panes:
+        service-product-service: ./start-service-product-service.sh

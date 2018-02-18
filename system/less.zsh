@@ -1,0 +1,1 @@
+export LESS="--RAW-CONTROL-CHARS"

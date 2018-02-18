@@ -1,0 +1,49 @@
+# OS
+# ==============================================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+ehthumbs.db
+Thumbs.db
+
+#
+# Common
+# ==============================================
+
+.tmp
+*.log
+
+# Components
+# ==============================================
+
+# Bower
+bower_components
+
+# Node.js
+node_modules
+
+# Editor specific files/folders
+# ==============================================
+
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+!default.pbxuser
+!default.mode1v3
+!default.mode2v3
+!default.perspectivev3
+xcuserdata
+*.moved-aside
+
+# Vim
+.netrwhist
+undo/
+plugged/

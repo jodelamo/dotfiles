@@ -1,0 +1,27 @@
+[color]
+  ui = auto
+[core]
+  excludesfile = ~/.gitignore
+  editor = nvim
+  autocrlf = input
+  ignorecase = false
+  pager = less -F -X --raw-control-chars
+[user]
+  name = Joacim de la Motte
+  email = joacim.delamotte@gmail.com
+[alias]
+  co = checkout
+  ci = commit
+  cm = commit -m
+  st = status
+  br = branch
+  aa = add --all
+  cl = clean -dxf
+  type = cat-file -t
+  dump = cat-file -p
+[push]
+  default = simple
+[fetch]
+	prune = true
+[init]
+	defaultBranch = main
