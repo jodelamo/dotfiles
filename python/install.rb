@@ -11,6 +11,7 @@ installed = `pip list | awk 'FNR > 2 { print $1 }'`
 packages = %w[
   neovim
   pynvim
+  yamllint
 ]
 
 packages.each do |p|
