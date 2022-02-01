@@ -42,6 +42,9 @@ paq({
 
 	-- git
 	"lewis6991/gitsigns.nvim",
+
+	-- mkdir
+	"jghauser/mkdir.nvim",
 })
 
 -- Helpers
@@ -99,6 +102,11 @@ require("lspconfig").html.setup({
 	capabilities = capabilities,
 })
 
+-- yaml
+require("lspconfig").yamlls.setup({
+	capabilities = capabilities,
+})
+
 -- lua
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
@@ -137,6 +145,7 @@ local null_ls = require("null-ls")
 local sources = {
 	null_ls.builtins.diagnostics.eslint,
 	null_ls.builtins.diagnostics.shellcheck,
+	null_ls.builtins.diagnostics.yamllint,
 	null_ls.builtins.formatting.goimports,
 	null_ls.builtins.formatting.prettier,
 	null_ls.builtins.formatting.shfmt,
