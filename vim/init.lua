@@ -45,6 +45,9 @@ paq({
 
 	-- mkdir
 	"jghauser/mkdir.nvim",
+
+	-- markdown
+	"iamcco/markdown-preview.nvim",
 })
 
 -- Helpers
