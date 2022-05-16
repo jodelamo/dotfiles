@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-version = "16.10.0"
+version = "16.14.2"
 
 system("nodenv install #{version} --skip-existing")
 system("nodenv global #{version}")
