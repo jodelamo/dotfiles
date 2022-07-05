@@ -13,6 +13,7 @@ paq({
   "jose-elias-alvarez/null-ls.nvim",
   "RishabhRD/popfix",
   "RishabhRD/nvim-lsputils",
+  "hashicorp/terraform-ls",
 
   -- completion
   "hrsh7th/cmp-nvim-lsp",
@@ -108,6 +109,11 @@ require("lspconfig").html.setup({
 
 -- yaml
 require("lspconfig").yamlls.setup({
+  capabilities = capabilities,
+})
+
+-- terraform
+require("lspconfig").terraformls.setup({
   capabilities = capabilities,
 })
 

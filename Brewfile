@@ -7,6 +7,7 @@ tap "homebrew/cask-fonts"
 tap "moncho/dry"
 tap "neovim/neovim"
 tap "phrase/brewed"
+tap "hashicorp/tap"
 
 # Packages
 # ----------------------------------------------------------------------------
@@ -37,6 +38,7 @@ brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "ruby-build"
 brew "shellcheck"
+brew "terraform-ls"
 brew "tfenv"
 brew "the_silver_searcher"
 brew "tmate"
