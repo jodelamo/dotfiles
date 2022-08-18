@@ -2,16 +2,19 @@ desc "Create symlinks"
 task :bootstrap do
   require "fileutils"
 
-  HOME = ENV["HOME"]
+  home_dir = ENV["HOME"]
 
   dotfiles_root = File.join(__dir__)
   symlinks = Dir.glob(File.join(dotfiles_root, "*/*.symlink"))
 
-  # Create symbolic link from .symlink directory to $HOME, sans extension
+  # Create symbolic link from .symlink file/directory to $HOME, sans extension
   symlinks.each do |source|
-    dest = ENV["HOME"] + "/." + File.basename(source, ".*")
-    puts "==> Symlink: #{source} => #{dest}"
-    FileUtils.ln_s(source, dest, force: true)
+    target = "#{home_dir}/.#{File.basename(source, '.*')}"
+
+    unless File.exist?(target)
+      puts "Symlink: #{source} => #{target}"
+      FileUtils.ln_s(source, target, force: true)
+    end
   end
 
   # macOS setup
@@ -29,7 +32,7 @@ task :install do
 
     # Skip this installer to avoid opening a black hole of death
     unless installer.eql? here
-      puts "==> Install: #{installer}"
+      puts "Install: #{installer}"
       system(installer)
     end
   end
