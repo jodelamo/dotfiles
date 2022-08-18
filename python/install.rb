@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-version = "3.8.1"
+version = "3.9.7"
 system("CFLAGS='-I$(xcrun --show-sdk-path)/usr/include' pyenv install #{version} --skip-existing")
 system("pyenv global #{version}")
 system("pyenv rehash")
