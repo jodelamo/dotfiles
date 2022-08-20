@@ -1,56 +1,58 @@
 local paq = require("paq")
 
 paq({
-	-- package manager
-	"savq/paq-nvim",
+  -- package manager
+  "savq/paq-nvim",
 
-	-- color scheme
-	"folke/tokyonight.nvim",
+  -- color scheme
+  "folke/tokyonight.nvim",
 
-	-- lsp
-	"neovim/nvim-lspconfig",
-	"nvim-lua/plenary.nvim",
-	"jose-elias-alvarez/null-ls.nvim",
-	"RishabhRD/popfix",
-	"RishabhRD/nvim-lsputils",
-	"hashicorp/terraform-ls",
+  -- lsp
+  "neovim/nvim-lspconfig",
+  "nvim-lua/plenary.nvim",
+  "jose-elias-alvarez/null-ls.nvim",
+  "RishabhRD/popfix",
+  "RishabhRD/nvim-lsputils",
+  "hashicorp/terraform-ls",
 
-	-- completion
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-buffer",
-	"hrsh7th/cmp-path",
-	"hrsh7th/cmp-cmdline",
-	"hrsh7th/nvim-cmp",
+  -- completion
+  "hrsh7th/cmp-nvim-lsp",
+  "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-path",
+  "hrsh7th/cmp-cmdline",
+  "hrsh7th/nvim-cmp",
 
-	-- snippets
-	"hrsh7th/cmp-vsnip",
-	"hrsh7th/vim-vsnip",
+  -- snippets
+  "hrsh7th/cmp-vsnip",
+  "hrsh7th/vim-vsnip",
 
-	-- search
-	"mileszs/ack.vim",
+  -- search
+  "mileszs/ack.vim",
 
-	-- fuzzy search
-	"junegunn/fzf",
-	"junegunn/fzf.vim",
-	"ojroques/nvim-lspfuzzy",
+  -- fuzzy search
+  "junegunn/fzf",
+  "junegunn/fzf.vim",
+  "ojroques/nvim-lspfuzzy",
 
-	-- highlighting
-	{ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" },
-	"hashivim/vim-terraform",
-	"posva/vim-vue",
+  -- highlighting
+  { "nvim-treesitter/nvim-treesitter", run = "TSUpdate" },
+  "hashivim/vim-terraform",
+  "posva/vim-vue",
+  "ray-x/go.nvim",
+  "ray-x/guihua.lua",
 
-	-- netrw
-	"tpope/vim-vinegar",
+  -- netrw
+  "tpope/vim-vinegar",
 
-	-- git
-	"tpope/vim-fugitive",
-	"lewis6991/gitsigns.nvim",
+  -- git
+  "tpope/vim-fugitive",
+  "lewis6991/gitsigns.nvim",
 
-	-- mkdir
-	"jghauser/mkdir.nvim",
+  -- mkdir
+  "jghauser/mkdir.nvim",
 
-	-- markdown
-	"iamcco/markdown-preview.nvim",
+  -- markdown
+  "iamcco/markdown-preview.nvim",
 })
 
 -- Helpers
@@ -75,47 +77,47 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- typescript
 require("lspconfig").tsserver.setup({
-	capabilities = capabilities,
+  capabilities = capabilities,
 })
 
 -- eslint
 require("lspconfig").eslint.setup({
-	capabilities = capabilities,
+  capabilities = capabilities,
 })
 
 -- vue
 require("lspconfig").vuels.setup({
-	capabilities = capabilities,
+  capabilities = capabilities,
 })
 
 -- python
 require("lspconfig").pyright.setup({
-	capabilities = capabilities,
+  capabilities = capabilities,
 })
 
 -- ruby
 require("lspconfig").solargraph.setup({
-	capabilities = capabilities,
+  capabilities = capabilities,
 })
 
 -- go
 require("lspconfig").gopls.setup({
-	capabilities = capabilities,
+  capabilities = capabilities,
 })
 
 -- html
 require("lspconfig").html.setup({
-	capabilities = capabilities,
+  capabilities = capabilities,
 })
 
 -- yaml
 require("lspconfig").yamlls.setup({
-	capabilities = capabilities,
+  capabilities = capabilities,
 })
 
 -- terraform
 require("lspconfig").terraformls.setup({
-	capabilities = capabilities,
+  capabilities = capabilities,
 })
 
 -- lua
@@ -124,29 +126,29 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 require("lspconfig").sumneko_lua.setup({
-	capabilities = capabilities,
-	settings = {
-		Lua = {
-			runtime = {
-				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-				version = "LuaJIT",
-				-- Setup your lua path
-				path = runtime_path,
-			},
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { "vim" },
-			},
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
-			},
-			-- Do not send telemetry data containing a randomized but unique identifier
-			telemetry = {
-				enable = false,
-			},
-		},
-	},
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = "LuaJIT",
+        -- Setup your lua path
+        path = runtime_path,
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { "vim" },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
 })
 
 -- null-ls.nvim
@@ -154,29 +156,29 @@ require("lspconfig").sumneko_lua.setup({
 local null_ls = require("null-ls")
 
 local sources = {
-	null_ls.builtins.diagnostics.eslint,
-	null_ls.builtins.diagnostics.shellcheck,
-	null_ls.builtins.diagnostics.yamllint,
-	null_ls.builtins.formatting.goimports,
-	null_ls.builtins.formatting.prettier,
-	null_ls.builtins.formatting.shfmt,
-	null_ls.builtins.formatting.stylelint,
-	null_ls.builtins.formatting.stylua,
-	null_ls.builtins.formatting.terraform_fmt,
+  null_ls.builtins.diagnostics.eslint,
+  null_ls.builtins.diagnostics.shellcheck,
+  null_ls.builtins.diagnostics.yamllint,
+  null_ls.builtins.formatting.goimports,
+  null_ls.builtins.formatting.prettier,
+  null_ls.builtins.formatting.shfmt,
+  null_ls.builtins.formatting.stylelint,
+  null_ls.builtins.formatting.stylua,
+  null_ls.builtins.formatting.terraform_fmt,
 }
 
 null_ls.setup({
-	sources = sources,
-	on_attach = function(client)
-		if client.resolved_capabilities.document_formatting then
-			vim.cmd([[
+  sources = sources,
+  on_attach = function(client)
+    if client.resolved_capabilities.document_formatting then
+      vim.cmd([[
         augroup LspFormatting
             autocmd! * <buffer>
             autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
         augroup END
       ]])
-		end
-	end,
+    end
+  end,
 })
 
 -- nvim-lsputils.nvim
@@ -197,24 +199,24 @@ require("lspfuzzy").setup({})
 -- nvim-treesitter
 ---------------------------------------------------------------------------
 require("nvim-treesitter.configs").setup({
-	-- list of languages
-	ensure_installed = {
-		"css",
-		"go",
-		"html",
-		"javascript",
-		"json",
-		"lua",
-		"python",
-		"ruby",
-		"scss",
-		"typescript",
-		"vue",
-		"yaml",
-	},
+  -- list of languages
+  ensure_installed = {
+    "css",
+    "go",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "python",
+    "ruby",
+    "scss",
+    "typescript",
+    "vue",
+    "yaml",
+  },
 
-	-- install languages synchronously (only applied to `ensure_installed`)
-	sync_install = false,
+  -- install languages synchronously (only applied to `ensure_installed`)
+  sync_install = false,
 })
 
 -- nvim-cmp
@@ -226,60 +228,60 @@ vim.opt.completeopt:append("noselect")
 local cmp = require("cmp")
 
 cmp.setup({
-	snippet = {
-		expand = function(args)
-			-- For `vsnip` users.
-			vim.fn["vsnip#anonymous"](args.body)
-		end,
-	},
-	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
-		{ name = "vsnip" },
-		{ name = "buffer" },
-	}),
-	mapping = {
-		["<C-p>"] = cmp.mapping.select_prev_item(),
-		["<C-n>"] = cmp.mapping.select_next_item(),
-		["<C-d>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.close(),
-		["<CR>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
-		}),
-		["<Tab>"] = function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-				-- elseif luasnip.expand_or_jumpable() then
-				-- luasnip.expand_or_jump()
-			else
-				fallback()
-			end
-		end,
-		["<S-Tab>"] = function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-				-- elseif luasnip.jumpable(-1) then
-				-- luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end,
-	},
+  snippet = {
+    expand = function(args)
+      -- For `vsnip` users.
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  sources = cmp.config.sources({
+    { name = "nvim_lsp" },
+    { name = "vsnip" },
+    { name = "buffer" },
+  }),
+  mapping = {
+    ["<C-p>"] = cmp.mapping.select_prev_item(),
+    ["<C-n>"] = cmp.mapping.select_next_item(),
+    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-e>"] = cmp.mapping.close(),
+    ["<CR>"] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    }),
+    ["<Tab>"] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+        -- elseif luasnip.expand_or_jumpable() then
+        -- luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end,
+    ["<S-Tab>"] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+        -- elseif luasnip.jumpable(-1) then
+        -- luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end,
+  },
 })
 
 cmp.setup.cmdline("/", {
-	sources = {
-		{ name = "buffer" },
-	},
+  sources = {
+    { name = "buffer" },
+  },
 })
 
 cmp.setup.cmdline(":", {
-	sources = cmp.config.sources({
-		{ name = "path" },
-		{ name = "cmdline" },
-	}),
+  sources = cmp.config.sources({
+    { name = "path" },
+    { name = "cmdline" },
+  }),
 })
 
 -- fzf.vim
@@ -296,16 +298,23 @@ map("n", "<C-p>", ":Files<CR>", mapOpts)
 -- gitsigns.nvim
 require("gitsigns").setup()
 
+-- go.nvim
+---------------------------------------------------------------------------
+require('go').setup()
+
+-- run gofmt + goimport on save
+vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
+
 -- Config
 -- ============================================================================
 
 -- diagnostics display options
 vim.diagnostic.config({
-	virtual_text = true,
-	signs = true,
-	underline = true,
-	update_in_insert = false,
-	severity_sort = false,
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
 })
 
 -- colorscheme
