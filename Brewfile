@@ -13,6 +13,7 @@ tap "hashicorp/tap"
 # ----------------------------------------------------------------------------
 brew "ack"
 brew "bat"
+brew "colima"
 brew "ctags"
 brew "docker"
 brew "dry"
@@ -55,14 +56,12 @@ brew "zsh-syntax-highlighting"
 
 # Fonts
 # ----------------------------------------------------------------------------
-
 # Monospace
 cask "font-fira-code"
 cask "font-hack"
 
 # Applications
 # ----------------------------------------------------------------------------
-
 cask "1password"
 cask "alacritty"
 cask "calibre"
