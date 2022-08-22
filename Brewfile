@@ -49,6 +49,7 @@ brew "tmux"
 brew "tree"
 brew "wget"
 brew "yaml-language-server"
+brew "yamllint"
 brew "zsh"
 brew "zsh-syntax-highlighting"
 
