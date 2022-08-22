@@ -2,8 +2,10 @@
 
 require "fileutils"
 
+# rubocop:disable Layout/LineLength
 # Install paq-nvim
 system("git clone --depth=1 https://github.com/savq/paq-nvim.git \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/pack/paqs/start/paq-nvim")
+# rubocop:enable Layout/LineLength
 
 config_dir = FileUtils.mkdir_p("#{Dir.home}/.config/nvim")
 src_file = File.join(__dir__, "init.lua")

@@ -22,7 +22,7 @@ brew "fzf"
 brew "gawk"
 brew "git"
 brew "gnu-sed"
-brew "goenv", args: ['HEAD']
+brew "goenv", args: ["HEAD"]
 brew "gource"
 brew "grc"
 brew "htop"
