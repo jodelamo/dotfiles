@@ -1,13 +1,16 @@
 #!/usr/bin/env ruby
 
-exists = `command -v brew > /dev/null 2>&1`
+exists = system("command -v brew", out: File::NULL)
 
 unless exists
+  puts "Installing Homebrew..."
   pid = Kernel.fork do
-    system("/usr/bin/ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)'")
+    system({ "NONINTERACTIVE" => "1" }, "curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh",
+           out: File::NULL)
   end
 
   Process.wait(pid)
 
+  puts "Installing dependencies from Brewfile..."
   system("brew bundle")
 end

@@ -2,9 +2,6 @@ desc "Create symlinks"
 task :bootstrap do
   require "fileutils"
 
-  # Install Homebrew
-  system({ "NONINTERACTIVE" => "1" }, "curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh")
-
   home_dir = ENV["HOME"]
 
   dotfiles_root = File.join(__dir__)
