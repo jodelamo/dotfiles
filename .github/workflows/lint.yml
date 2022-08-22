@@ -15,3 +15,6 @@ jobs:
         uses: andrewmcodes/rubocop-linter-action@v3.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit Lint
+        uses: wagoid/commitlint-github-action@v5
