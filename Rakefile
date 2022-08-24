@@ -12,13 +12,13 @@ task :bootstrap do
     target = "#{home_dir}/.#{File.basename(source, '.*')}"
 
     unless File.exist?(target)
-      puts "Symlink: #{source} => #{target}"
+      puts "Symlink: #{source} -> #{target}"
       FileUtils.ln_s(source, target, force: true)
     end
   end
 
   # macOS setup
-  system("#{dotfiles_root}/bin/dot") if RUBY_PLATFORM.include? "darwin"
+  system("#{dotfiles_root}/bin/macos") if RUBY_PLATFORM.include? "darwin"
 end
 
 desc "Install packages"
