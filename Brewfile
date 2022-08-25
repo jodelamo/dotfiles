@@ -21,6 +21,7 @@ brew "efm-langserver"
 brew "fff"
 brew "fzf"
 brew "gawk"
+brew "gh"
 brew "git"
 brew "gnu-sed"
 brew "goenv", args: ["HEAD"]
