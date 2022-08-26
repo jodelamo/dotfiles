@@ -2,7 +2,7 @@ desc "Create symlinks"
 task :bootstrap do
   require "fileutils"
 
-  home_dir = ENV["HOME"]
+  home_dir = Dir.home
 
   dotfiles_root = File.join(__dir__)
   symlinks = Dir.glob(File.join(dotfiles_root, "*/*.symlink"))

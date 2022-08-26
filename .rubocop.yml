@@ -1,4 +1,26 @@
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
+AllCops:
+  StyleGuideCopsOnly: false
+  DisabledByDefault: false
+
+  NewCops: enable
+
+Metrics/BlockLength:
+  AllowedPatterns: ['describe', 'context']
+
+Style/Documentation:
+  Enabled: false
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
