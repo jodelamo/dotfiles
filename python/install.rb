@@ -9,6 +9,7 @@ system("pip install --upgrade pip")
 installed = `pip list | awk 'FNR > 2 { print $1 }'`
 
 packages = %w[
+  beautysh
   neovim
   pynvim
   yamllint
