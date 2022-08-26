@@ -10,13 +10,7 @@ Clone the repository:
 git clone git@github.com:jlowgren/dotfiles.git ~/.dotfiles
 ```
 
-Make sure you're running `zsh`:
-
-```zsh
-chsh -s /bin/zsh
-```
-
-Symlink and run installation scripts:
+In a `zsh` shell, symlink and run installation scripts:
 
 ```zsh
 rake bootstrap
