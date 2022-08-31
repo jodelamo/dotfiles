@@ -7,10 +7,7 @@ system("goenv global #{version}")
 system("goenv rehash")
 
 packages = %w[
-  github.com/ericchiang/pup
-  golang.org/x/tools/cmd/goimports
-  golang.org/x/tools/gopls@latest
-  mvdan.cc/sh/v3/cmd/shfmt@latest
+  github.com/ericchiang/pup@latest
 ]
 
 packages.each do |p|
