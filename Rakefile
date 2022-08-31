@@ -16,7 +16,7 @@ task :bootstrap do
     target = "#{Dir.home}/.#{File.basename(source, '.*')}"
 
     unless File.exist?(target)
-      puts "Symlink: #{source} -> #{target}"
+      puts("Symlink: #{source} -> #{target}")
       FileUtils.ln_s(source, target, force: true)
     end
   end
@@ -29,7 +29,7 @@ task :install do
   # Run installation files one directory level down
   installers.each do |f|
     installer = File.expand_path(f)
-    puts "Install: #{installer}"
+    puts("Install: #{installer}")
     system(installer)
   end
 end
