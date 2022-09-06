@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Lint Ruby
+      - name: Ruby Lint
         uses: andrewmcodes/rubocop-linter-action@v3.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
