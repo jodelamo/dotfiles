@@ -59,6 +59,7 @@ brew "zsh-syntax-highlighting"
 # Fonts
 # ----------------------------------------------------------------------------
 # Monospace
+cask "font-anka-coder"
 cask "font-fira-code"
 cask "font-hack"
 
