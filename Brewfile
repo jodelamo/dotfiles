@@ -62,6 +62,7 @@ brew "zsh-syntax-highlighting"
 cask "font-anka-coder"
 cask "font-fira-code"
 cask "font-hack"
+cask "font-monocraft"
 
 # Applications
 # ----------------------------------------------------------------------------
