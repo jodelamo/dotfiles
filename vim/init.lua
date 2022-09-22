@@ -61,6 +61,11 @@ require("lspconfig").eslint.setup({
 	capabilities = capabilities,
 })
 
+-- stylelint
+require("lspconfig").stylelint_lsp.setup({
+	capabilities = capabilities,
+})
+
 -- vue
 require("lspconfig").vuels.setup({
 	capabilities = capabilities,
