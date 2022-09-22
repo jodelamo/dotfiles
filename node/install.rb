@@ -9,11 +9,12 @@ system("nodenv rehash")
 installed = `npm ls -g -p --depth=0 | sed '1d' | sed 's@.*/@@'`
 
 packages = %w[
-  @vue/cli
   @volar/server
+  @vue/cli
   neovim
   npm-check
   pure-prompt
+  stylelint-lsp
   typescript
   typescript-language-server
   vls
