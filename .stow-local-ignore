@@ -1,0 +1,4 @@
+.*\.zsh
+install.sh
+\.gitignore
+/functions

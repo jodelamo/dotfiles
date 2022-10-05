@@ -1,6 +1,0 @@
-name: skapa-coded-components-vue
-root: ~/Dev/skapa-coded-components-vue
-
-windows:
-  - editor: vim
-  - server: yarn storybook:serve
