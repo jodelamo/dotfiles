@@ -28,7 +28,7 @@ paq({
 	"tpope/vim-fugitive",
 	"tpope/vim-vinegar",
 	{ "nvim-telescope/telescope.nvim", branch = "0.1.x" },
-	{ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" },
+	{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
 })
 
 -- Helpers
@@ -281,7 +281,7 @@ require("nvim-surround").setup()
 
 -- telescope.vim
 ---------------------------------------------------------------------------
-require("telescope").setup()
+require("telescope").setup({})
 
 -- show telescope on Ctrl-P
 map("n", "<C-p>", ":Telescope find_files<CR>", mapOpts)
