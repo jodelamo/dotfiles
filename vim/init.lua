@@ -21,6 +21,8 @@ paq({
 	"lewis6991/gitsigns.nvim",
 	"neovim/nvim-lspconfig",
 	"nvim-lua/plenary.nvim",
+	"nvim-tree/nvim-tree.lua",
+	"nvim-tree/nvim-web-devicons",
 	"posva/vim-vue",
 	"ray-x/go.nvim",
 	"ray-x/guihua.lua",
@@ -44,12 +46,30 @@ local mapOpts = { noremap = true, silent = true }
 -- ack.vim
 vim.g["ackprg"] = "ag --vimgrep"
 
+-- nvim-tree
+---------------------------------------------------------------------------
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+require("nvim-tree").setup({
+	sort_by = "case_sensitive",
+	view = {
+		adaptive_size = true,
+	},
+	renderer = {
+		group_empty = true,
+	},
+	filters = {
+		dotfiles = true,
+	},
+})
+
 -- nvim-lspconfig
 ---------------------------------------------------------------------------
 
 -- nvim-cmp capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- typescript
 require("lspconfig").tsserver.setup({
