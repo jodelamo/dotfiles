@@ -1,0 +1,37 @@
+[color]
+  ui = auto
+[core]
+  excludesfile = ~/.gitignore
+  editor = nvim
+  autocrlf = input
+  ignorecase = false
+  pager = delta
+[user]
+  name = Joacim de la Motte
+  email = joacim.delamotte@gmail.com
+[alias]
+  co = checkout
+  ci = commit
+  cm = commit -m
+  st = status
+  br = branch
+  aa = add --all
+  cl = clean -dxf
+  type = cat-file -t
+  dump = cat-file -p
+[push]
+  default = simple
+[fetch]
+	prune = true
+[init]
+	defaultBranch = main
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  light = false
+  line-numbers = true
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
