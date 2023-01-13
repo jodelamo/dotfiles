@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-ruby_version = "3.1.0"
+ruby_version = "3.2.0"
 
 system("rbenv install #{ruby_version} --skip-existing")
 system("rbenv global #{ruby_version}")
