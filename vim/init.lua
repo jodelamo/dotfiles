@@ -27,6 +27,8 @@ paq({
 	"ray-x/go.nvim",
 	"ray-x/guihua.lua",
 	"savq/paq-nvim", -- package manager
+	"mfussenegger/nvim-dap",
+	"theHamsta/nvim-dap-virtual-text",
 	"tpope/vim-fugitive",
 	"tpope/vim-vinegar",
 	{ "nvim-telescope/telescope.nvim", branch = "0.1.x" },
@@ -42,9 +44,6 @@ local mapOpts = { noremap = true, silent = true }
 
 -- Plugins
 -- ============================================================================
-
--- ack.vim
-vim.g["ackprg"] = "ag --vimgrep"
 
 -- nvim-tree
 ---------------------------------------------------------------------------
@@ -224,6 +223,10 @@ require("nvim-treesitter.configs").setup({
 	-- install languages synchronously (only applied to `ensure_installed`)
 	sync_install = false,
 })
+
+-- nvim-dap-virtual-text
+---------------------------------------------------------------------------
+require("nvim-dap-virtual-text").setup()
 
 -- nvim-cmp
 ---------------------------------------------------------------------------
