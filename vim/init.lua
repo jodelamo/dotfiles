@@ -46,7 +46,7 @@ local mapOpts = { noremap = true, silent = true }
 -- ============================================================================
 
 -- nvim-tree
----------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -64,7 +64,7 @@ require("nvim-tree").setup({
 })
 
 -- nvim-lspconfig
----------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 -- nvim-cmp capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -152,7 +152,7 @@ require("lspconfig").sumneko_lua.setup({
 })
 
 -- null-ls.nvim
----------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 local null_ls = require("null-ls")
 
 local sources = {
@@ -186,7 +186,7 @@ null_ls.setup({
 })
 
 -- nvim-lsputils.nvim
----------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 vim.lsp.handlers["textDocument/codeAction"] = require("lsputil.codeAction").code_action_handler
 vim.lsp.handlers["textDocument/references"] = require("lsputil.locations").references_handler
 vim.lsp.handlers["textDocument/definition"] = require("lsputil.locations").definition_handler
@@ -197,7 +197,7 @@ vim.lsp.handlers["textDocument/documentSymbol"] = require("lsputil.symbols").doc
 vim.lsp.handlers["workspace/symbol"] = require("lsputil.symbols").workspace_handler
 
 -- nvim-treesitter
----------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 require("nvim-treesitter.configs").setup({
 	-- list of languages
 	ensure_installed = {
@@ -225,11 +225,11 @@ require("nvim-treesitter.configs").setup({
 })
 
 -- nvim-dap-virtual-text
----------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 require("nvim-dap-virtual-text").setup()
 
 -- nvim-cmp
----------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 vim.opt.completeopt:append("menu")
 vim.opt.completeopt:append("menuone")
 vim.opt.completeopt:append("noselect")
@@ -299,26 +299,33 @@ cmp.setup.cmdline(":", {
 })
 
 -- nvim-surround
----------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 require("nvim-surround").setup()
 
 -- telescope.vim
----------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 require("telescope").setup({})
 
 -- show telescope on Ctrl-P
 map("n", "<C-p>", ":Telescope find_files<CR>", mapOpts)
 
 -- gitsigns.nvim
----------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 require("gitsigns").setup()
 
 -- go.nvim
----------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 require("go").setup()
 
 -- run gofmt + goimport on save
-vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
+local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.go",
+	callback = function()
+		require("go.format").goimport()
+	end,
+	group = format_sync_grp,
+})
 
 -- Config
 -- ============================================================================
