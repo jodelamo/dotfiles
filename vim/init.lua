@@ -1,4 +1,5 @@
 require("packer").startup(function(use)
+  use("wbthomason/packer.nvim")
   use("RishabhRD/nvim-lsputils")
   use("RishabhRD/popfix")
   use("folke/tokyonight.nvim") -- color scheme
@@ -33,6 +34,11 @@ require("packer").startup(function(use)
       local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
       ts_update()
     end,
+  })
+  use({
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.x",
+    requires = { { "nvim-lua/plenary.nvim" } },
   })
 end)
 
@@ -407,5 +413,7 @@ vim.g.mapleader = ","
 map("n", "<esc>", ":noh<return><esc>", mapOpts)
 
 -- don't lose selection when shifting left or right
+map("x", "<", "<gv", mapOpts)
+map("x", ">", ">gv", mapOpts)
 map("x", "<", "<gv", mapOpts)
 map("x", ">", ">gv", mapOpts)
