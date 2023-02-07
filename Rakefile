@@ -7,7 +7,7 @@ task :bootstrap do
   # macOS setup
   system("#{dotfiles_root}/bin/macos") if RUBY_PLATFORM.include? "darwin"
 
-  # Symlink everything ending with ".symlink"
+  # Get list of files/directories ending with ".symlink"
   symlinks = Dir.glob(File.join(dotfiles_root, "*/*.symlink"))
 
   # Create symbolic links
