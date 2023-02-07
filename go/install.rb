@@ -10,6 +10,7 @@ packages = %w[
   github.com/abenz1267/gomvp@latest
   github.com/ericchiang/pup@latest
   golang.org/x/vuln/cmd/govulncheck@latest
+  mvdan.cc/sh/v3/cmd/shfmt@latest
 ]
 
 packages.each do |p|
