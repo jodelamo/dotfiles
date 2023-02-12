@@ -314,7 +314,7 @@ require("nvim-surround").setup()
 require("telescope").setup({})
 
 -- show telescope on Ctrl-P
-map("n", "<C-p>", ":Telescope find_files<CR>", mapOpts)
+map("n", "<C-p>", ":Telescope find_files hidden=true<CR>", mapOpts)
 
 -- gitsigns.nvim
 -------------------------------------------------------------------------------
