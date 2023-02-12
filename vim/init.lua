@@ -170,12 +170,11 @@ require("lspconfig").sumneko_lua.setup({
 local null_ls = require("null-ls")
 
 local sources = {
-	null_ls.builtins.diagnostics.eslint,
-	null_ls.builtins.diagnostics.rubocop,
+	null_ls.builtins.diagnostics.rubocop, -- ruby
 	null_ls.builtins.diagnostics.shellcheck,
-	null_ls.builtins.diagnostics.yamllint,
+	null_ls.builtins.diagnostics.yamllint, -- yaml
 	null_ls.builtins.formatting.beautysh, -- sh, zsh, ...
-	null_ls.builtins.formatting.goimports,
+	null_ls.builtins.formatting.goimports, -- go
 	null_ls.builtins.formatting.prettier,
 	null_ls.builtins.formatting.rubocop,
 	null_ls.builtins.formatting.shfmt,
