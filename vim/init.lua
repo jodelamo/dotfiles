@@ -1,5 +1,4 @@
 require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
 	use("RishabhRD/nvim-lsputils")
 	use("RishabhRD/popfix")
 	use("folke/tokyonight.nvim") -- color scheme
@@ -18,13 +17,14 @@ require("packer").startup(function(use)
 	use("jremmen/vim-ripgrep")
 	use("kylechui/nvim-surround")
 	use("lewis6991/gitsigns.nvim")
-	use("neovim/nvim-lspconfig")
-	use("posva/vim-vue")
-	use("ray-x/go.nvim")
-	use("ray-x/guihua.lua")
 	use("mfussenegger/nvim-dap")
-	use("theHamsta/nvim-dap-virtual-text")
-	use("tpope/vim-fugitive")
+	use("neovim/nvim-lspconfig")
+	use("numToStr/Comment.nvim")
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.x",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 	use({
 		"nvim-tree/nvim-tree.lua",
 		requires = {
@@ -38,11 +38,12 @@ require("packer").startup(function(use)
 			ts_update()
 		end,
 	})
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.x",
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
+	use("posva/vim-vue")
+	use("ray-x/go.nvim")
+	use("ray-x/guihua.lua")
+	use("theHamsta/nvim-dap-virtual-text")
+	use("tpope/vim-fugitive")
+	use("wbthomason/packer.nvim")
 end)
 
 -- Helpers
@@ -54,6 +55,9 @@ local mapOpts = { noremap = true, silent = true }
 
 -- Plugins
 -- ============================================================================
+
+-- Comment.nvim
+require("Comment").setup()
 
 -- nvim-tree
 -------------------------------------------------------------------------------
