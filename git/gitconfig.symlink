@@ -5,7 +5,7 @@
   editor = nvim
   autocrlf = input
   ignorecase = false
-  pager = less -F -X --raw-control-chars
+  pager = delta
 [user]
   name = Joacim de la Motte
   email = joacim.delamotte@gmail.com
