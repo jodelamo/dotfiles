@@ -24,6 +24,7 @@ brew "fzf"
 brew "gawk"
 brew "gh"
 brew "git"
+brew "git-delta"
 brew "gnu-sed"
 brew "goenv", args: ["HEAD"]
 brew "gource"
