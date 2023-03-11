@@ -2,6 +2,7 @@ require("packer").startup(function(use)
   use("RishabhRD/nvim-lsputils")
   use("RishabhRD/popfix")
   use("folke/tokyonight.nvim") -- color scheme
+  use({ "folke/trouble.nvim", requires = "nvim-tree/nvim-web-devicons" })
   use("hashicorp/terraform-ls")
   use("hashivim/vim-terraform")
   use("hrsh7th/cmp-buffer")
@@ -55,6 +56,10 @@ local mapOpts = { noremap = true, silent = true }
 
 -- Plugins
 -- ============================================================================
+
+-- trouble.nvim
+require("trouble").setup()
+map("n", "<leader>t", "<cmd>TroubleToggle<cr>", mapOpts)
 
 -- Comment.nvim
 require("Comment").setup()
