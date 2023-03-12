@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-version = "1.2.7"
+version = "1.4.0"
 
 system("tfenv install #{version}")
 system("tfenv use #{version}")
