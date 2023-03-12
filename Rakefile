@@ -7,8 +7,7 @@ LINK = "link".freeze
 desc "Bootstrap"
 task :bootstrap do
   # macOS setup
-  dotfiles_root = File.join(__dir__)
-  system("#{dotfiles_root}/bin/macos") if RUBY_PLATFORM.include? "darwin"
+  system("#{Dir.getwd}/bin/macos") if RUBY_PLATFORM.include? "darwin"
 
   # Load config
   config = YAML.load_file("config.yml")
@@ -24,7 +23,7 @@ end
 
 desc "Install packages"
 task :install do
-  installers = Dir.glob(File.join(__dir__, "*/install.rb"))
+  installers = Dir.glob(File.join(Dir.getwd, "*/install.rb"))
 
   # Run installation files one directory level down
   installers.each do |f|
