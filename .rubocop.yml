@@ -1,11 +1,11 @@
+---
 AllCops:
-  StyleGuideCopsOnly: false
   DisabledByDefault: false
-
   NewCops: enable
+  StyleGuideCopsOnly: false
 
 Metrics/BlockLength:
-  AllowedPatterns: ['describe', 'context']
+  AllowedPatterns: ["describe", "context"]
 
 Style/Documentation:
   Enabled: false

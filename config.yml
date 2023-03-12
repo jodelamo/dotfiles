@@ -1,0 +1,11 @@
+---
+link:
+  ~/.config/kitty/current-theme.conf: kitty/current-theme.conf
+  ~/.config/kitty/kitty.conf: kitty/kitty.conf
+  ~/.config/nvim/init.lua: vim/init.lua
+  ~/.gemrc: ruby/gemrc
+  ~/.gitconfig: git/gitconfig
+  ~/.gitignore: git/gitignore
+  ~/.ripgreprc: ripgrep/ripgreprc
+  ~/.tmux.conf: tmux/tmux.conf
+  ~/.zshrc: zsh/zshrc
