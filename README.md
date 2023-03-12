@@ -1,6 +1,6 @@
 # dotfiles
 
-Originally a fork of [Zach Holman's](https://github.com/holman/dotfiles) dotfiles.
+> My dotfiles, originally forked from [Zach Holman's](https://github.com/holman/dotfiles) dotfiles.
 
 ## Usage
 
