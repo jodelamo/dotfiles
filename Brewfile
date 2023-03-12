@@ -65,6 +65,7 @@ cask "font-anka-coder"
 cask "font-fira-code"
 cask "font-hack"
 cask "font-hack-nerd-font"
+cask "font-inter"
 cask "font-monocraft"
 
 # Applications
