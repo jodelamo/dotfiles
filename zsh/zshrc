@@ -6,7 +6,7 @@ fi
 # Shortcut to this dotfiles path is $ZSH
 export ZSH=~/.dotfiles
 
-# Your project folder that we can `c [tab]` to
+# Project folder
 export PROJECTS=~/Dev
 
 # Initialize autocomplete here, otherwise functions won't be loaded

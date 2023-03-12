@@ -1,24 +1,24 @@
 require "fileutils"
+require "yaml"
 
-desc "Create symlinks"
+# Constants
+LINK = "link".freeze
+
+desc "Bootstrap"
 task :bootstrap do
-  dotfiles_root = File.join(__dir__)
-
   # macOS setup
+  dotfiles_root = File.join(__dir__)
   system("#{dotfiles_root}/bin/macos") if RUBY_PLATFORM.include? "darwin"
 
-  # Get list of files/directories ending with ".symlink"
-  symlinks = Dir.glob(File.join(dotfiles_root, "*/*.symlink"))
+  # Load config
+  config = YAML.load_file("config.yml")
 
-  # Create symbolic links
-  symlinks.each do |source|
-    # Remove ".symlink" suffix
-    target = "#{Dir.home}/.#{File.basename(source, '.*')}"
-
-    unless File.exist?(target)
-      puts("Symlink: #{source} -> #{target}")
-      FileUtils.ln_s(source, target, force: true)
-    end
+  config[LINK].each do |dest, source|
+    puts("Symlink: #{source} -> #{dest}")
+    # Create directories wherever necessary
+    FileUtils.mkdir_p(File.expand_path(File.dirname(dest)))
+    # Create symlinks
+    FileUtils.ln_s(File.expand_path(source), File.expand_path(dest), force: true)
   end
 end
 
