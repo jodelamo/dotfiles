@@ -2,7 +2,8 @@ require "fileutils"
 require "yaml"
 
 # Constants
-LINK = "link".freeze
+CONFIG_FILE = "config.yml".freeze
+OPTION_LINK = "link".freeze
 
 desc "Bootstrap"
 task :bootstrap do
@@ -10,9 +11,9 @@ task :bootstrap do
   system("#{Dir.getwd}/bin/macos") if RUBY_PLATFORM.include? "darwin"
 
   # Load config
-  config = YAML.load_file("config.yml")
+  config = YAML.load_file(CONFIG_FILE)
 
-  config[LINK].each do |dest, source|
+  config[OPTION_LINK].each do |dest, source|
     puts("Symlink: #{source} -> #{dest}")
     # Create directories wherever necessary
     FileUtils.mkdir_p(File.expand_path(File.dirname(dest)))
