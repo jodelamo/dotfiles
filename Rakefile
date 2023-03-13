@@ -28,8 +28,8 @@ task :install do
 
   # Run installation files one directory level down
   installers.each do |f|
-    installer = File.expand_path(f)
     puts("Install: #{installer}")
+    installer = File.expand_path(f)
     system(installer)
   end
 end
