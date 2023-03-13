@@ -64,7 +64,8 @@ local mapOpts = { noremap = true, silent = true }
 
 -- trouble.nvim
 require("trouble").setup()
-map("n", "<leader>t", "<cmd>TroubleToggle<cr>", mapOpts)
+
+map("n", "<leader>xx", ":TroubleToggle<CR>", mapOpts)
 
 -- Comment.nvim
 require("Comment").setup()
