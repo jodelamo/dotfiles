@@ -2,7 +2,8 @@
 link:
   ~/.config/kitty/current-theme.conf: kitty/current-theme.conf
   ~/.config/kitty/kitty.conf: kitty/kitty.conf
-  ~/.config/nvim/init.lua: vim/init.lua
+  ~/.config/nvim/init.lua: nvim/init.lua
+  ~/.config/nvim/lua: nvim/lua
   ~/.gemrc: ruby/gemrc
   ~/.gitconfig: git/gitconfig
   ~/.gitignore: git/gitignore
