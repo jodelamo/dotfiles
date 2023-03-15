@@ -10,7 +10,7 @@ unless exists
   end
 
   Process.wait(pid)
-
-  puts "Installing dependencies from Brewfile..."
-  system("brew bundle")
 end
+
+puts "Installing dependencies from Brewfile..."
+system("brew bundle --file=#{Dir.pwd}/Brewfile")
