@@ -5,8 +5,5 @@ export ZSH="$HOME/.dotfiles"
 # Install homebrew
 "$ZSH"/homebrew/install.rb
 
-# Install Homebrew packages
-brew bundle
-
 # Set macOS defaults
 "$ZSH"/macos/set-defaults.sh
