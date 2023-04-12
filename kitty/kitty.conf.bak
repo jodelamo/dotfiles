@@ -2168,6 +2168,6 @@ tab_activity_symbol " "
 
 
 # BEGIN_KITTY_THEME
-# Gruvbox Dark Hard
+# Gruvbox Light Soft
 include current-theme.conf
 # END_KITTY_THEME
