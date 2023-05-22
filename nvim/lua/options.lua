@@ -1,11 +1,15 @@
 -- diagnostics display options
 vim.diagnostic.config({
-	virtual_text = true,
+	virtual_text = false,
 	signs = true,
+	float = { border = "single" },
 	underline = true,
 	update_in_insert = false,
 	severity_sort = false,
 })
+
+-- less time for `CursorHold` (etc) to trigger
+vim.o.updatetime = 250
 
 -- colorscheme
 vim.opt.termguicolors = true -- true color support

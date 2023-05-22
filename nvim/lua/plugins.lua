@@ -80,6 +80,8 @@ require("nvim-tree").setup({
 
 -- nvim-lspconfig
 -------------------------------------------------------------------------------
+-- show floating window after a short while when cursor is over diagnostic
+vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 
 -- nvim-cmp capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
