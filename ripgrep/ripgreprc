@@ -5,3 +5,4 @@
 --hidden
 --files
 --no-ignore-vcs
+--follow
