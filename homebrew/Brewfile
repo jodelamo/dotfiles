@@ -67,6 +67,7 @@ cask "font-hack"
 cask "font-hack-nerd-font"
 cask "font-inter"
 cask "font-monocraft"
+cask "font-tsukimi-rounded"
 
 # Applications
 # ----------------------------------------------------------------------------
