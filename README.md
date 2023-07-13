@@ -1,6 +1,6 @@
 # dotfiles
 
-> My dotfiles, originally forked from [Zach Holman's](https://github.com/holman/dotfiles) dotfiles.
+> My dotfiles
 
 ## Usage
 
@@ -16,5 +16,3 @@ In a `zsh` shell, symlink and run installation scripts:
 rake bootstrap
 rake install
 ```
-
-Kablowie! 💥
