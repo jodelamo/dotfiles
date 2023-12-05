@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-version = "20.9.0"
+version = "20.10.0"
 
 system("nodenv install #{version} --skip-existing")
 system("nodenv global #{version}")
@@ -13,7 +13,6 @@ packages = %w[
   @volar/server
   @vue/cli
   neovim
-  npm-check
   pure-prompt
   stylelint-lsp
   typescript
