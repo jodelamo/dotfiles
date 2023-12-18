@@ -70,6 +70,7 @@ cask "font-hack-nerd-font"
 cask "font-inter"
 cask "font-monaspace"
 cask "font-monocraft"
+cask "font-playwrite-co"
 cask "font-tsukimi-rounded"
 
 # Applications
