@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-version = "20.10.0"
+version = "20.11.0"
 
 system("nodenv install #{version} --skip-existing")
 system("nodenv global #{version}")
@@ -11,7 +11,6 @@ installed = `npm ls -g -p --depth=0 | sed '1d' | sed 's@.*/@@'`
 packages = %w[
   @fsouza/prettierd
   @volar/server
-  @vue/cli
   neovim
   pure-prompt
   stylelint-lsp
