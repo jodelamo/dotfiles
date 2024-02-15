@@ -57,6 +57,7 @@ brew "uncrustify"
 brew "wget"
 brew "yaml-language-server"
 brew "yamllint"
+brew "zellij"
 brew "zsh"
 brew "zsh-syntax-highlighting"
 
