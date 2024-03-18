@@ -20,13 +20,16 @@ require("packer").startup(function(use)
 	use("iamcco/markdown-preview.nvim")
 	use("jghauser/mkdir.nvim")
 	use("nvimtools/none-ls.nvim")
+	use("nvimtools/none-ls-extras.nvim")
 	use("jremmen/vim-ripgrep")
 	use("kylechui/nvim-surround")
 	use("lewis6991/gitsigns.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use({
 		"rcarriga/nvim-dap-ui",
-		requires = { "mfussenegger/nvim-dap" },
+		requires = {
+			"mfussenegger/nvim-dap",
+		},
 	})
 	use("folke/neodev.nvim")
 	use("neovim/nvim-lspconfig")
@@ -34,11 +37,15 @@ require("packer").startup(function(use)
 	use({
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
-		requires = { "nvim-lua/plenary.nvim" },
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
 	})
 	use({
 		"nvim-tree/nvim-tree.lua",
-		requires = { "nvim-tree/nvim-web-devicons" },
+		requires = {
+			"nvim-tree/nvim-web-devicons",
+		},
 	})
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -181,15 +188,13 @@ require("lspconfig").lua_ls.setup({
 	},
 })
 
--- null-ls.nvim
+-- none-ls.nvim
 -------------------------------------------------------------------------------
 local null_ls = require("null-ls")
 
 local sources = {
 	null_ls.builtins.diagnostics.rubocop,
-	null_ls.builtins.diagnostics.shellcheck,
 	null_ls.builtins.diagnostics.yamllint,
-	null_ls.builtins.formatting.beautysh,
 	null_ls.builtins.formatting.goimports,
 	null_ls.builtins.formatting.prettierd,
 	null_ls.builtins.formatting.rubocop,
@@ -197,7 +202,6 @@ local sources = {
 	null_ls.builtins.formatting.stylelint,
 	null_ls.builtins.formatting.stylua,
 	null_ls.builtins.formatting.terraform_fmt,
-	null_ls.builtins.formatting.uncrustify,
 }
 
 null_ls.setup({
