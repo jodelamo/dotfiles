@@ -19,8 +19,6 @@ require("packer").startup(function(use)
 	use("hrsh7th/vim-vsnip")
 	use("iamcco/markdown-preview.nvim")
 	use("jghauser/mkdir.nvim")
-	use("nvimtools/none-ls.nvim")
-	use("nvimtools/none-ls-extras.nvim")
 	use("jremmen/vim-ripgrep")
 	use("kylechui/nvim-surround")
 	use("lewis6991/gitsigns.nvim")
@@ -61,6 +59,7 @@ require("packer").startup(function(use)
 	use("tpope/vim-fugitive")
 	use("wbthomason/packer.nvim")
 	use("github/copilot.vim")
+	use("stevearc/conform.nvim")
 end)
 
 -- Plugins
@@ -68,6 +67,27 @@ end)
 
 -- Comment.nvim
 require("Comment").setup()
+
+-- conform.nvim
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		ruby = { "rubocop" },
+		go = { "goimports" },
+		javascript = { "prettierd" },
+		typescript = { "prettierd" },
+		terraform = { "terraform_fmt" },
+	},
+	format_on_save = {
+		timeout_ms = 500,
+		lsp_fallback = true,
+	},
+	formatters = {
+		shfmt = {
+			prepend_args = { "-i", "2" },
+		},
+	},
+})
 
 -- gruvbox.nvim
 require("gruvbox").setup({
@@ -186,36 +206,6 @@ require("lspconfig").lua_ls.setup({
 			},
 		},
 	},
-})
-
--- none-ls.nvim
--------------------------------------------------------------------------------
-local null_ls = require("null-ls")
-
-local sources = {
-	null_ls.builtins.diagnostics.rubocop,
-	null_ls.builtins.diagnostics.yamllint,
-	null_ls.builtins.formatting.goimports,
-	null_ls.builtins.formatting.prettierd,
-	null_ls.builtins.formatting.rubocop,
-	null_ls.builtins.formatting.shfmt,
-	null_ls.builtins.formatting.stylelint,
-	null_ls.builtins.formatting.stylua,
-	null_ls.builtins.formatting.terraform_fmt,
-}
-
-null_ls.setup({
-	sources = sources,
-	on_attach = function(client)
-		if client.server_capabilities.documentFormattingProvider then
-			vim.cmd([[
-      augroup LspFormatting
-      autocmd! * <buffer>
-      autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
-      augroup END
-      ]])
-		end
-	end,
 })
 
 -- nvim-lsputils.nvim
