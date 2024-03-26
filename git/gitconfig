@@ -19,6 +19,8 @@
   cl = clean -dxf
   type = cat-file -t
   dump = cat-file -p
+  dft = difftool
+  dlog = "!f() { : git log ; GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
 [push]
   default = simple
 [fetch]
@@ -34,4 +36,11 @@
 [merge]
   conflictstyle = diff3
 [diff]
-  colorMoved = default
+  tool = difftastic
+  external = difft
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true
