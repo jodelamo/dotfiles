@@ -71,12 +71,13 @@ require("Comment").setup()
 -- conform.nvim
 require("conform").setup({
 	formatters_by_ft = {
-		lua = { "stylua" },
-		ruby = { "rubocop" },
 		go = { "goimports" },
 		javascript = { "prettierd" },
-		typescript = { "prettierd" },
+		lua = { "stylua" },
+		python = { "isort", "black" },
+		ruby = { "rubocop" },
 		terraform = { "terraform_fmt" },
+		typescript = { "prettierd" },
 	},
 	format_on_save = {
 		timeout_ms = 500,
