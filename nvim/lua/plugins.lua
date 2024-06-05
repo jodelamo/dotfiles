@@ -31,7 +31,6 @@ require("packer").startup(function(use)
 	})
 	use("folke/neodev.nvim")
 	use("neovim/nvim-lspconfig")
-	use("numToStr/Comment.nvim")
 	use({
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
@@ -64,9 +63,6 @@ end)
 
 -- Plugins
 -- ============================================================================
-
--- Comment.nvim
-require("Comment").setup()
 
 -- conform.nvim
 require("conform").setup({
@@ -332,7 +328,7 @@ require("telescope").setup({})
 -------------------------------------------------------------------------------
 require("gitsigns").setup()
 
--- lukas-reineke/indent-blankline.nvim
+-- indent-blankline.nvim
 -------------------------------------------------------------------------------
 require("ibl").setup()
 
