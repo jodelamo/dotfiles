@@ -1,65 +1,68 @@
-require("packer").startup(function(use)
-	use("RishabhRD/nvim-lsputils")
-	use("RishabhRD/popfix")
-	use("ellisonleao/gruvbox.nvim")
-	use({
+require("lazy").setup({
+	"RishabhRD/nvim-lsputils",
+	"RishabhRD/popfix",
+	"ellisonleao/gruvbox.nvim",
+	"folke/neodev.nvim",
+	{
 		"folke/trouble.nvim",
-		requires = {
+		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
-	})
-	use("hashicorp/terraform-ls")
-	use("hashivim/vim-terraform")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-vsnip")
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/vim-vsnip")
-	use("iamcco/markdown-preview.nvim")
-	use("jghauser/mkdir.nvim")
-	use("jremmen/vim-ripgrep")
-	use("kylechui/nvim-surround")
-	use("lewis6991/gitsigns.nvim")
-	use("lukas-reineke/indent-blankline.nvim")
-	use({
-		"rcarriga/nvim-dap-ui",
-		requires = {
-			"mfussenegger/nvim-dap",
-		},
-	})
-	use("folke/neodev.nvim")
-	use("neovim/nvim-lspconfig")
-	use({
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
-		requires = {
+		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
-	})
-	use({
+	},
+	{
 		"nvim-tree/nvim-tree.lua",
-		requires = {
+		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
-	})
-	use({
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-			ts_update()
+		build = ":TSUpdate",
+	},
+	{
+		"nvim-pack/nvim-spectre",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		keys = {
+			{ "<F4>", "<cmd>SpectreWithCWD<cr>", mode = { "n" } },
+		},
+		config = function()
+			require("spectre").setup({ is_block_ui_break = true })
 		end,
-	})
-	use("posva/vim-vue")
-	use("ray-x/go.nvim")
-	use("ray-x/guihua.lua")
-	use("theHamsta/nvim-dap-virtual-text")
-	use("tpope/vim-fugitive")
-	use("wbthomason/packer.nvim")
-	use("github/copilot.vim")
-	use("stevearc/conform.nvim")
-end)
+	},
+	"neovim/nvim-lspconfig",
+	"hashicorp/terraform-ls",
+	"hashivim/vim-terraform",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-cmdline",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-vsnip",
+	"hrsh7th/nvim-cmp",
+	"jghauser/mkdir.nvim",
+	"jremmen/vim-ripgrep",
+	"kylechui/nvim-surround",
+	"lewis6991/gitsigns.nvim",
+	"lukas-reineke/indent-blankline.nvim",
+	"github/copilot.vim",
+	"ray-x/go.nvim",
+	"ray-x/guihua.lua",
+	{ "rcarriga/nvim-dap-ui", dependencies = {
+		"mfussenegger/nvim-dap",
+	} },
+	"stevearc/conform.nvim",
+	"theHamsta/nvim-dap-virtual-text",
+	"tpope/vim-fugitive",
+	"wbthomason/packer.nvim",
+})
 
 -- Plugins
 -- ============================================================================
