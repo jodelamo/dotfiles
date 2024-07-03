@@ -10,11 +10,9 @@ installed = `gem list | awk '{ print $1 }'`
 
 gems = %w[
   bundler
-  cocoapods
   neovim
   rouge
   rubocop
-  solargraph
   tmuxinator
 ]
 

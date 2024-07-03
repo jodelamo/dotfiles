@@ -12,7 +12,6 @@ packages = %w[
   beautysh
   neovim
   pynvim
-  yamllint
 ]
 
 packages.each do |p|

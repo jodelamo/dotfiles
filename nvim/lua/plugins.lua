@@ -132,6 +132,7 @@ require("lazy").setup({
 					"jsonls",
 					"tsserver",
 					"pyright",
+					"rubocop",
 				},
 			})
 		end,

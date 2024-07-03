@@ -10,15 +10,8 @@ installed = `npm ls -g -p --depth=0 | sed '1d' | sed 's@.*/@@'`
 
 packages = %w[
   @fsouza/prettierd
-  @volar/server
   neovim
   pure-prompt
-  stylelint-lsp
-  typescript
-  typescript-language-server
-  vls
-  vscode-langservers-extracted
-  yarn
 ]
 
 packages.each do |p|
