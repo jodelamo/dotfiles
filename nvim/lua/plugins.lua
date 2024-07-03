@@ -120,6 +120,7 @@ require("lazy").setup({
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = {
 			"neovim/nvim-lspconfig",
+			"williamoman/mason.nvim",
 		},
 		config = function()
 			require("mason").setup()
@@ -133,8 +134,18 @@ require("lazy").setup({
 					"tsserver",
 					"pyright",
 					"rubocop",
+					"yamlls",
 				},
 			})
+
+			require("lspconfig").cssls.setup({})
+			require("lspconfig").eslint.setup({})
+			require("lspconfig").html.setup({})
+			require("lspconfig").jsonls.setup({})
+			require("lspconfig").tsserver.setup({})
+			require("lspconfig").pyright.setup({})
+			require("lspconfig").rubocop.setup({})
+			require("lspconfig").yamlls.setup({})
 		end,
 	},
 
