@@ -25,6 +25,24 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
+		cmd = "Trouble",
+		opts = {
+			modes = {
+				preview_float = {
+					mode = "diagnostics",
+					preview = {
+						type = "float",
+						relative = "editor",
+						border = "rounded",
+						title = "Preview",
+						title_pos = "center",
+						position = { 0, -2 },
+						size = { width = 0.3, height = 0.3 },
+						zindex = 200,
+					},
+				},
+			},
+		},
 	},
 
 	{
@@ -135,6 +153,7 @@ require("lazy").setup({
 					"pyright",
 					"rubocop",
 					"yamlls",
+					"lua_ls",
 				},
 			})
 
@@ -146,6 +165,7 @@ require("lazy").setup({
 			require("lspconfig").pyright.setup({})
 			require("lspconfig").rubocop.setup({})
 			require("lspconfig").yamlls.setup({})
+			require("lspconfig").lua_ls.setup({})
 		end,
 	},
 
