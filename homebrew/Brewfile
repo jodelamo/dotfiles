@@ -74,6 +74,7 @@ cask "font-tsukimi-rounded"
 # Applications
 # ----------------------------------------------------------------------------
 cask "1password"
+cask "arc"
 cask "calibre"
 cask "daisydisk"
 cask "google-chrome"
