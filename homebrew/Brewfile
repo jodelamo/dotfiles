@@ -3,7 +3,6 @@ cask_args appdir: "/Applications"
 # Taps
 # ----------------------------------------------------------------------------
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "moncho/dry"
 tap "neovim/neovim"
 tap "phrase/brewed"
