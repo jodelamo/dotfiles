@@ -9,7 +9,6 @@ system("nodenv rehash")
 installed = `npm ls -g -p --depth=0 | sed '1d' | sed 's@.*/@@'`
 
 packages = %w[
-  @fsouza/prettierd
   neovim
 ]
 

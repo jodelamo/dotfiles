@@ -176,6 +176,7 @@ require("lazy").setup({
 					"html",
 					"jsonls",
 					"tsserver",
+          "prettierd",
 					"pyright",
 					"yamlls",
 					"lua_ls",
