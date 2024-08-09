@@ -14,7 +14,7 @@ vim.o.updatetime = 250
 -- colorscheme
 vim.opt.termguicolors = true -- true color support
 vim.opt.background = "dark"
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme tokyonight")
 
 -- leave the past behind
 vim.opt.compatible = false
