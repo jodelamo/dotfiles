@@ -1,10 +1,10 @@
 require("lazy").setup({
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 
 	{
 		"folke/neodev.nvim",
@@ -320,15 +320,29 @@ require("lazy").setup({
 
 	{
 		"stevearc/conform.nvim",
+		event = "BufWritePre",
+		cmd = "ConformInfo",
+		keys = {
+			{
+				"<leader>f",
+				function()
+					require("conform").format({ async = true })
+				end,
+				mode = "",
+				desc = "Format buffer",
+			},
+		},
 		opts = {
 			formatters_by_ft = {
 				go = { "goimports" },
-				javascript = { "prettierd", "prettier", stop_after_first = true },
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				ruby = { "rubocop" },
 				terraform = { "terraform_fmt" },
-				typescript = { "prettierd" },
+				javascript = { "prettierd", "prettier", stop_after_first = true },
+				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+				typescript = { "prettierd", "prettier", stop_after_first = true },
+				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 			},
 			format_on_save = {
 				timeout_ms = 500,
@@ -340,23 +354,15 @@ require("lazy").setup({
 				},
 			},
 		},
-		config = function()
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				pattern = "*",
-				callback = function(args)
-					require("conform").format({ bufnr = args.buf })
-				end,
-			})
-		end,
 	},
 
-  {
-    "stevearc/oil.nvim",
-    config = function()
-      require("oil").setup()
-      vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-    end
-  },
+	{
+		"stevearc/oil.nvim",
+		config = function()
+			require("oil").setup()
+			vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+		end,
+	},
 
 	{
 		"tpope/vim-fugitive",
