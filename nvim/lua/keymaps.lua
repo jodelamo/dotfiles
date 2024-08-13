@@ -22,9 +22,3 @@ map("x", ">", ">gv", mapOpts)
 
 -- nvim-tree
 map("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", mapOpts)
-
--- telescope.vim
-map("n", "<C-p>", ":Telescope find_files hidden=true<CR>", mapOpts)
-
--- trouble.nvim
-map("n", "<leader>xx", ":TroubleToggle<CR>", mapOpts)

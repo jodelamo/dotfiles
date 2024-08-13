@@ -1,12 +1,38 @@
 -- diagnostics display options
 vim.diagnostic.config({
-	virtual_text = false,
-	signs = true,
-	float = { border = "single" },
-	underline = true,
-	update_in_insert = false,
 	severity_sort = false,
+	signs = true, -- gutter signs
+	underline = false,
+	update_in_insert = false,
+	virtual_text = false,
+	float = {
+		border = "rounded",
+		focusable = false,
+		show_header = true,
+		source = "if_many",
+	},
 })
+
+-- show diagnostics in a floating window after a short delay
+vim.cmd([[autocmd CursorHold * lua ShowDiagnosticFloat()]])
+
+function ShowDiagnosticFloat()
+	local opts = {
+		close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+	}
+
+	local bufnr = vim.api.nvim_get_current_buf()
+	local cursor_pos = vim.api.nvim_win_get_cursor(0)
+	local row = cursor_pos[1] - 1
+
+	local diagnostics = vim.diagnostic.get(bufnr, { lnum = row })
+
+	if vim.tbl_isempty(diagnostics) then
+		return
+	end
+
+	vim.diagnostic.open_float(bufnr, opts)
+end
 
 -- less time for `CursorHold` (etc) to trigger
 vim.o.updatetime = 250
@@ -14,7 +40,7 @@ vim.o.updatetime = 250
 -- colorscheme
 vim.opt.termguicolors = true -- true color support
 vim.opt.background = "dark"
-vim.cmd("colorscheme tokyonight")
+-- vim.cmd("colorscheme tokyonight")
 
 -- leave the past behind
 vim.opt.compatible = false
