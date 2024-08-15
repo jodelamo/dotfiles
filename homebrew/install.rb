@@ -13,4 +13,4 @@ unless exists
 end
 
 puts "Installing dependencies from Brewfile..."
-system("brew bundle --file=#{Dir.pwd}/Brewfile")
+system("brew bundle --file=#{Dir.pwd}/homebrew/Brewfile")
