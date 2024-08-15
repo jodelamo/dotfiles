@@ -5,9 +5,10 @@ link:
   ~/.config/nvim/init.lua: nvim/init.lua
   ~/.config/nvim/lua: nvim/lua
   ~/.config/zellij/config.kdl: zellij/config.kdl
+  ~/.config/zsh/.zshrc: zsh/zshrc
   ~/.gemrc: ruby/gemrc
   ~/.gitconfig: git/gitconfig
   ~/.gitignore: git/gitignore
   ~/.ripgreprc: ripgrep/ripgreprc
   ~/.tmux.conf: tmux/tmux.conf
-  ~/.zshrc: zsh/zshrc
+  ~/.zshenv: zsh/zshenv
