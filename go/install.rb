@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-version = "1.19.0"
+version = "1.23.0"
 
 system("goenv install #{version} --skip-existing")
 system("goenv global #{version}")
