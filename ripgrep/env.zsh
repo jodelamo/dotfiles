@@ -1,1 +1,1 @@
-RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+RIPGREP_CONFIG_PATH="$HOME/.config/rg/.ripgreprc"
