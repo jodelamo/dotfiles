@@ -1,17 +1,4 @@
--- diagnostics display options
-vim.diagnostic.config({
-	severity_sort = false,
-	signs = true, -- gutter signs
-	underline = false,
-	update_in_insert = false,
-	virtual_text = false,
-	float = {
-		border = "rounded",
-		focusable = false,
-		show_header = true,
-		source = "if_many",
-	},
-})
+vim.diagnostic.config({ virtual_text = false })
 
 -- show diagnostics in a floating window after a short delay
 vim.cmd([[autocmd CursorHold * lua ShowDiagnosticFloat()]])
