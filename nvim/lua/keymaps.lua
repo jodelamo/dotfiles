@@ -1,24 +1,3 @@
--- Helpers
--- ============================================================================
-
--- convenience shortcut for keyboard mappings
-local map = vim.api.nvim_set_keymap
-local mapOpts = { noremap = true, silent = true }
-
--- change <leader> key to comma
-vim.g.mapleader = ","
-
--- clear highlight on escape
-map("n", "<esc>", ":noh<return><esc>", mapOpts)
-
--- don't lose selection when shifting left or right
-map("x", "<", "<gv", mapOpts)
-map("x", ">", ">gv", mapOpts)
-map("x", "<", "<gv", mapOpts)
-map("x", ">", ">gv", mapOpts)
-
--- Plugin keymaps
--- ============================================================================
-
--- nvim-tree
-map("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", mapOpts)
+-- Don't lose selection when shifting left or right
+vim.keymap.set("x", "<", "<gv")
+vim.keymap.set("x", ">", ">gv")

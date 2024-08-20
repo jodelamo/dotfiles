@@ -1,3 +1,6 @@
+-- change <leader> key to comma
+vim.g.mapleader = ","
+
 vim.diagnostic.config({ virtual_text = false })
 
 -- show diagnostics in a floating window after a short delay

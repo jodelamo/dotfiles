@@ -113,6 +113,7 @@ require("lazy").setup({
 		init = function()
 			vim.g.loaded_netrw = 1
 			vim.g.loaded_netrwPlugin = 1
+			vim.keymap.set("n", "<C-n>", ":NvimTreeFindFileToggle<CR>")
 		end,
 		opts = {
 			sort_by = "case_sensitive",
