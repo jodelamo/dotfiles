@@ -176,6 +176,7 @@ require("lazy").setup({
 					"pyright",
 					"yamlls",
 					"lua_ls",
+					"ruby_lsp",
 				},
 			})
 
@@ -187,6 +188,7 @@ require("lazy").setup({
 			require("lspconfig").pyright.setup({})
 			require("lspconfig").yamlls.setup({})
 			require("lspconfig").lua_ls.setup({})
+			require("lspconfig").ruby_lsp.setup({})
 		end,
 	},
 
