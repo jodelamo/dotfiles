@@ -198,7 +198,15 @@ require("lazy").setup({
 			require("lspconfig").tsserver.setup({})
 			require("lspconfig").pyright.setup({})
 			require("lspconfig").yamlls.setup({})
-			require("lspconfig").lua_ls.setup({})
+			require("lspconfig").lua_ls.setup({
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+					},
+				},
+			})
 			require("lspconfig").ruby_lsp.setup({})
 		end,
 	},

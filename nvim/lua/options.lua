@@ -1,28 +1,21 @@
 -- change <leader> key to comma
 vim.g.mapleader = ","
 
-vim.diagnostic.config({ virtual_text = false })
+vim.diagnostic.config({
+	virtual_text = false,
+	float = {
+		source = true,
+		border = "rounded",
+	},
+})
 
--- show diagnostics in a floating window after a short delay
-vim.cmd([[autocmd CursorHold * lua ShowDiagnosticFloat()]])
-
-function ShowDiagnosticFloat()
-	local opts = {
-		close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-	}
-
-	local bufnr = vim.api.nvim_get_current_buf()
-	local cursor_pos = vim.api.nvim_win_get_cursor(0)
-	local row = cursor_pos[1] - 1
-
-	local diagnostics = vim.diagnostic.get(bufnr, { lnum = row })
-
-	if vim.tbl_isempty(diagnostics) then
-		return
-	end
-
-	vim.diagnostic.open_float(bufnr, opts)
-end
+vim.o.updatetime = 250
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+	group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+	callback = function()
+		vim.diagnostic.open_float(nil, { focus = false })
+	end,
+})
 
 -- less time for `CursorHold` (etc) to trigger
 vim.o.updatetime = 250
