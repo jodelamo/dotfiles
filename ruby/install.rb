@@ -13,7 +13,6 @@ gems = %w[
   neovim
   rouge
   rubocop
-  tmuxinator
 ]
 
 gems.each do |p|
