@@ -138,6 +138,7 @@ require("lazy").setup({
 				"html",
 				"javascript",
 				"json",
+				"kdl", -- zellij
 				"lua",
 				"python",
 				"ruby",
