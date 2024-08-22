@@ -143,6 +143,7 @@ require("lazy").setup({
 				"python",
 				"ruby",
 				"scss",
+				"terraform",
 				"typescript",
 				"vue",
 				"yaml",
