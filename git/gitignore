@@ -8,10 +8,6 @@
 .Spotlight-V100
 .Trashes
 
-# Windows
-ehthumbs.db
-Thumbs.db
-
 #
 # Common
 # ==============================================
@@ -21,9 +17,6 @@ Thumbs.db
 
 # Components
 # ==============================================
-
-# Bower
-bower_components
 
 # Node.js
 node_modules
@@ -42,8 +35,3 @@ node_modules
 !default.perspectivev3
 xcuserdata
 *.moved-aside
-
-# Vim
-.netrwhist
-undo/
-plugged/
