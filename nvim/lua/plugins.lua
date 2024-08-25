@@ -189,6 +189,7 @@ require("lazy").setup({
 					"yamlls",
 					"lua_ls",
 					"ruby_lsp",
+					"terraformls",
 				},
 			})
 
@@ -209,6 +210,7 @@ require("lazy").setup({
 				},
 			})
 			require("lspconfig").ruby_lsp.setup({})
+			require("lspconfig").terraformls.setup({})
 
 			vim.diagnostic.config({
 				virtual_text = false,
