@@ -1,7 +1,6 @@
 require "fileutils"
 require "yaml"
 
-# Constants
 CONFIG_FILE = "config.yml".freeze
 OPTION_LINK = "link".freeze
 
@@ -15,8 +14,10 @@ task :bootstrap do
 
   config[OPTION_LINK].each do |dest, source|
     puts("Symlink: #{source} -> #{dest}")
+
     # Create directories wherever necessary
     FileUtils.mkdir_p(File.expand_path(File.dirname(dest)))
+
     # Create symlinks
     FileUtils.ln_s(File.expand_path(source), File.expand_path(dest), force: true)
   end
