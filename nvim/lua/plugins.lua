@@ -79,6 +79,24 @@ require("lazy").setup({
 	},
 
 	{
+		"mfussenegger/nvim-lint",
+		opts = {
+			linters_by_ft = {
+				"eslint",
+				"rubocop",
+				"shellcheck",
+			},
+		},
+		config = function()
+			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+				callback = function()
+					require("lint").try_lint()
+				end,
+			})
+		end,
+	},
+
+	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
 		dependencies = {
@@ -359,7 +377,7 @@ require("lazy").setup({
 
 	{
 		"stevearc/conform.nvim",
-		event = "BufWritePre",
+		event = { "LspAttach", "BufReadPost", "BufNewFile" },
 		cmd = "ConformInfo",
 		keys = {
 			{
@@ -376,7 +394,6 @@ require("lazy").setup({
 				go = { "goimports" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
-				ruby = { "rubocop" },
 				terraform = { "terraform_fmt" },
 				javascript = { "prettierd", "prettier", stop_after_first = true },
 				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
@@ -386,6 +403,7 @@ require("lazy").setup({
 			format_on_save = {
 				timeout_ms = 500,
 				lsp_fallback = true,
+				async = true,
 			},
 			formatters = {
 				shfmt = {
