@@ -85,6 +85,7 @@ require("lazy").setup({
 				"eslint",
 				"rubocop",
 				"shellcheck",
+				"stylua",
 			},
 		},
 		config = function()
@@ -188,13 +189,18 @@ require("lazy").setup({
 	},
 
 	{
+		"williamboman/mason.nvim",
+		config = function()
+			require("mason").setup()
+		end,
+	},
+
+	{
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = {
 			"neovim/nvim-lspconfig",
-			"williamboman/mason.nvim",
 		},
 		config = function()
-			require("mason").setup()
 			require("mason-lspconfig").setup({
 				automatic_installation = true,
 				ensure_installed = {
@@ -229,14 +235,6 @@ require("lazy").setup({
 			})
 			require("lspconfig").ruby_lsp.setup({})
 			require("lspconfig").terraformls.setup({})
-
-			vim.diagnostic.config({
-				virtual_text = false,
-				float = {
-					source = true,
-					border = "rounded",
-				},
-			})
 
 			vim.o.updatetime = 250
 			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -349,6 +347,9 @@ require("lazy").setup({
 		dependencies = {
 			"ray-x/guihua.lua",
 		},
+		event = {
+			"CmdlineEnter",
+		},
 		config = function()
 			require("go").setup()
 
@@ -362,9 +363,6 @@ require("lazy").setup({
 				group = format_sync_grp,
 			})
 		end,
-		event = {
-			"CmdlineEnter",
-		},
 	},
 
 	{
@@ -392,18 +390,18 @@ require("lazy").setup({
 		opts = {
 			formatters_by_ft = {
 				go = { "goimports" },
+				javascript = { "prettierd", "prettier", stop_after_first = true },
+				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				terraform = { "terraform_fmt" },
-				javascript = { "prettierd", "prettier", stop_after_first = true },
-				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
 				typescript = { "prettierd", "prettier", stop_after_first = true },
 				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+				yaml = { "yamlfix" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
 				lsp_fallback = true,
-				async = true,
 			},
 			formatters = {
 				shfmt = {
@@ -423,5 +421,15 @@ require("lazy").setup({
 
 	{
 		"tpope/vim-fugitive",
+	},
+
+	{
+		-- Auto-install conform formatters
+		"zapling/mason-conform.nvim",
+	},
+
+	{
+		-- Auto-install nvim-lint linters
+		"rshkarin/mason-nvim-lint",
 	},
 })
