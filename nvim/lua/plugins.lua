@@ -392,6 +392,7 @@ require("lazy").setup({
 				go = { "goimports" },
 				javascript = { "prettierd", "prettier", stop_after_first = true },
 				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+				json = { "jsonlint" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				terraform = { "terraform_fmt" },
