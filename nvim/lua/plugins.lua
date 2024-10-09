@@ -86,7 +86,6 @@ require("lazy").setup({
 				"rubocop",
 				"shellcheck",
 				"stylua",
-				"vale",
 			},
 		},
 		event = {
@@ -219,7 +218,6 @@ require("lazy").setup({
 					"lua_ls",
 					"ruby_lsp",
 					"terraformls",
-					"vale_ls",
 				},
 			})
 
@@ -241,7 +239,6 @@ require("lazy").setup({
 			})
 			require("lspconfig").ruby_lsp.setup({})
 			require("lspconfig").terraformls.setup({})
-			require("lspconfig").vale_ls.setup({})
 
 			vim.o.updatetime = 250
 			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
