@@ -86,7 +86,11 @@ require("lazy").setup({
 				"rubocop",
 				"shellcheck",
 				"stylua",
+				"vale",
 			},
+		},
+		event = {
+			"BufWritePost",
 		},
 		config = function()
 			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
@@ -150,10 +154,10 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			-- list of languages
 			ensure_installed = {
 				"css",
 				"go",
+				"hcl", -- tfvars
 				"html",
 				"javascript",
 				"json",
@@ -167,10 +171,11 @@ require("lazy").setup({
 				"vue",
 				"yaml",
 			},
-			-- automatically install missing parsers when entering buffer
 			auto_install = true,
-			-- install languages synchronously (only applied to `ensure_installed`)
 			sync_install = false,
+			highlight = {
+				enable = true,
+			},
 		},
 	},
 
@@ -208,12 +213,13 @@ require("lazy").setup({
 					"eslint",
 					"html",
 					"jsonls",
-					"tsserver",
+					"ts_ls",
 					"pyright",
 					"yamlls",
 					"lua_ls",
 					"ruby_lsp",
 					"terraformls",
+					"vale_ls",
 				},
 			})
 
@@ -221,7 +227,7 @@ require("lazy").setup({
 			require("lspconfig").eslint.setup({})
 			require("lspconfig").html.setup({})
 			require("lspconfig").jsonls.setup({})
-			require("lspconfig").tsserver.setup({})
+			require("lspconfig").ts_ls.setup({})
 			require("lspconfig").pyright.setup({})
 			require("lspconfig").yamlls.setup({})
 			require("lspconfig").lua_ls.setup({
@@ -235,6 +241,7 @@ require("lazy").setup({
 			})
 			require("lspconfig").ruby_lsp.setup({})
 			require("lspconfig").terraformls.setup({})
+			require("lspconfig").vale_ls.setup({})
 
 			vim.o.updatetime = 250
 			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
