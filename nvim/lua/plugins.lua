@@ -82,7 +82,7 @@ require("lazy").setup({
 		"mfussenegger/nvim-lint",
 		opts = {
 			linters_by_ft = {
-				"eslint",
+				"biomejs",
 				"rubocop",
 				"shellcheck",
 				"stylua",
@@ -208,10 +208,9 @@ require("lazy").setup({
 			require("mason-lspconfig").setup({
 				automatic_installation = true,
 				ensure_installed = {
+					"biome",
 					"cssls",
-					"eslint",
 					"html",
-					"jsonls",
 					"ts_ls",
 					"pyright",
 					"yamlls",
@@ -221,10 +220,9 @@ require("lazy").setup({
 				},
 			})
 
+			require("lspconfig").biome.setup({})
 			require("lspconfig").cssls.setup({})
-			require("lspconfig").eslint.setup({})
 			require("lspconfig").html.setup({})
-			require("lspconfig").jsonls.setup({})
 			require("lspconfig").ts_ls.setup({})
 			require("lspconfig").pyright.setup({})
 			require("lspconfig").yamlls.setup({})
@@ -394,14 +392,10 @@ require("lazy").setup({
 		opts = {
 			formatters_by_ft = {
 				go = { "goimports" },
-				javascript = { "prettierd", "prettier", stop_after_first = true },
-				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
 				json = { "jsonlint" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				terraform = { "terraform_fmt" },
-				typescript = { "prettierd", "prettier", stop_after_first = true },
-				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 				yaml = { "yamlfix" },
 			},
 			format_on_save = {
