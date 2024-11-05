@@ -1,5 +1,9 @@
 require("lazy").setup({
 	{
+		"folke/drop.nvim",
+	},
+
+	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
