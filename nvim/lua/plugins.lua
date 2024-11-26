@@ -190,6 +190,7 @@ require("lazy").setup({
 				"terraform",
 				"typescript",
 				"vue",
+				"v",
 				"yaml",
 			},
 			auto_install = true,
@@ -239,6 +240,7 @@ require("lazy").setup({
 					"lua_ls",
 					"ruby_lsp",
 					"terraformls",
+					"v_analyzer",
 				},
 			})
 
@@ -259,6 +261,7 @@ require("lazy").setup({
 			})
 			require("lspconfig").ruby_lsp.setup({})
 			require("lspconfig").terraformls.setup({})
+			require("lspconfig").v_analyzer.setup({})
 
 			vim.o.updatetime = 250
 			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
