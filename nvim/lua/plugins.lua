@@ -184,6 +184,7 @@ require("lazy").setup({
 				"json",
 				"kdl", -- zellij
 				"lua",
+				"powershell",
 				"python",
 				"ruby",
 				"scss",
