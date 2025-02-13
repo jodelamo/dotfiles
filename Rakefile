@@ -9,6 +9,9 @@ task :bootstrap do
   # macOS setup
   system("#{Dir.getwd}/bin/macos") if RUBY_PLATFORM.include? "darwin"
 
+  # Windows setup
+  system("#{Dir.getwd}/bin/windows.ps1") if RUBY_PLATFORM.include? "windows"
+
   # Load config
   config = YAML.load_file(CONFIG_FILE)
 
