@@ -1,6 +1,6 @@
 #!/bin/sh
 
-version="22.13.1"
+version="22.14.0"
 
 nodenv install "$version" --skip-existing
 nodenv global "$version"
