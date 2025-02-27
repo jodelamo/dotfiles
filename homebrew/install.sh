@@ -1,6 +1,6 @@
 #!/bin/sh
 
-brewfile="$(pwd)/Brewfile"
+brewfile="$(dirname $0)/Brewfile"
 
 if [ ! command -v brew >/dev/null 2>&1 ]; then
   echo "Installing Homebrew..."

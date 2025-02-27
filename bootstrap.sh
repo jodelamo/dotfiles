@@ -20,10 +20,10 @@ if [ -e "$source" ]; then
   dest_dir=$(dirname "$dest")
   mkdir -p "$dest_dir"
 
-    # Create symlink
-    echo "🔗 Create symlink: $source -> $dest"
-    ln -sfn "$source" "$dest"
-  else
-    echo "Warning! Source does not exist: $source"
+  # Create symlink
+  echo "🔗 Create symlink: $source -> $dest"
+  ln -sfn "$source" "$dest"
+else
+  echo "Warning! Source does not exist: $source"
 fi
 done
