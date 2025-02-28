@@ -3,7 +3,13 @@
 export ZSH="$HOME/.dotfiles"
 
 # Install homebrew
-"$ZSH"/homebrew/install.sh
+brewfile="$ZSH/homebrew/Brewfile"
+
+if [ ! command -v brew >/dev/null 2>&1 ]; then
+  NONINTERACTIVE=1 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+brew bundle --file=$brewfile
 
 # Set macOS defaults
 "$ZSH"/macos/set-defaults.sh

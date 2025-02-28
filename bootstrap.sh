@@ -5,6 +5,8 @@ section="links"
 
 if [ "$(uname)" = "Darwin" ]; then
   ./bin/macos
+elif [ "$(uname)" = "Linux" ]; then
+  ./bin/linux
 fi
 
 awk -F '=' -v section="$section" '

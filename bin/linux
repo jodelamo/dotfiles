@@ -1,0 +1,7 @@
+#!/bin/sh
+
+export ZSH="$HOME/.dotfiles"
+
+sudo apt install -y "$(cat $ZSH/apt/packages.txt)"
+
+flatpak install -y "$(cat $ZSH/flatpak/packages.txt)"
