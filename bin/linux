@@ -2,6 +2,20 @@
 
 export ZSH="$HOME/.dotfiles"
 
+if ! command -v apt >/dev/null 2>&1; then
+  echo "apt is not available. Exiting."
+  exit 1
+fi
+
+sudo apt update
 sudo apt install -y "$(cat $ZSH/apt/packages.txt)"
 
-flatpak install -y "$(cat $ZSH/flatpak/packages.txt)"
+# Ensure Flatpak remote repository (Flathub) is enabled
+if ! flatpak remote-list | grep -q "flathub"; then
+  echo "Adding Flathub repository..."
+  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+fi
+
+for app in "$(cat $ZSH/flatpak/packages.txt)"; do
+  flatpak install -y flathub "$app"
+done

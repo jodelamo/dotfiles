@@ -1,3 +1,4 @@
 com.discordapp.Discord
 com.obsproject.Studio
 com.onepassword.OnePassword
+com.spotify.Client
