@@ -9,6 +9,7 @@ elif [ "$(uname)" = "Linux" ]; then
   ./bin/linux
 fi
 
+# Parse the INI file to figure out what needs to be linked
 awk -F '=' -v section="$section" '
   $0 ~ /^\[/ { in_section = ($0 == "[" section "]") }
   in_section && $1 !~ /^\[/ && $1 !~ /^$/ { 
@@ -26,6 +27,6 @@ awk -F '=' -v section="$section" '
     echo "🔗 Create symlink: $source -> $dest"
     ln -sfn "$source" "$dest"
   else
-    echo "Warning! Source does not exist: $source"
+    echo "⚠️ Warning! Source does not exist: $source"
   fi
 done
