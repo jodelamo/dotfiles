@@ -1,4 +1,5 @@
 flatpak
 git
+kitty
 neovim
 zsh
