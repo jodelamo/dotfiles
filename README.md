@@ -2,6 +2,8 @@
 
 > My dotfiles
 
+Not really intended for use by anyone else.
+
 ## Usage
 
 Clone the repository:
