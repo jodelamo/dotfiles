@@ -849,20 +849,6 @@
         "version": "1.17.1",
         "bottle": false
       },
-      "pure": {
-        "version": "1.23.0",
-        "bottle": {
-          "rebuild": 0,
-          "root_url": "https://ghcr.io/v2/homebrew/core",
-          "files": {
-            "all": {
-              "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/pure/blobs/sha256:28aed9b8a2ba35c28ebce54940385451c28af560e0eb22181edd0b56dfd78dc7",
-              "sha256": "28aed9b8a2ba35c28ebce54940385451c28af560e0eb22181edd0b56dfd78dc7"
-            }
-          }
-        }
-      },
       "pyenv": {
         "version": "2.4.10",
         "bottle": {
