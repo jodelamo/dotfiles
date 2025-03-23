@@ -15,7 +15,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st git-untracked
 # Ref: https://github.com/zsh-users/zsh/blob/master/Misc/vcs_info-examples#L163
 +vi-git-untracked() {
   if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-    git status --porcelain | grep -q '^?? ' 2> /dev/null ; then
+    git status --porcelain | grep -q '^?? ' 2> /dev/null; then
     hook_com[staged]+='?'
   fi
 }
@@ -47,9 +47,10 @@ precmd() {
 
   vcs_info
 
+  # Only show git information when relevant
   if [[ -z ${vcs_info_msg_0_} ]]; then
-    PROMPT="${newline}%B%F{cyan}%~%f%b %# "
+    PROMPT="${newline}%B%F{cyan}%~%f%b${newline}%# "
   else
-    PROMPT="${newline}%B%F{cyan}%~%f%b %F{yellow}${vcs_info_msg_0_}%f %# "
+    PROMPT="${newline}%B%F{cyan}%~%f%b %F{yellow}${vcs_info_msg_0_}%f${newline}%# "
   fi
 }
