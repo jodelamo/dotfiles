@@ -43,11 +43,13 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st git-untracked
 }
 
 precmd() {
+  local newline=$'\n'
+
   vcs_info
 
   if [[ -z ${vcs_info_msg_0_} ]]; then
-    PROMPT="%B%F{cyan}%~%f%b %# "
+    PROMPT="${newline}%B%F{cyan}%~%f%b %# "
   else
-    PROMPT="%B%F{cyan}%~%f%b %F{yellow}${vcs_info_msg_0_}%f %# "
+    PROMPT="${newline}%B%F{cyan}%~%f%b %F{yellow}${vcs_info_msg_0_}%f %# "
   fi
 }
