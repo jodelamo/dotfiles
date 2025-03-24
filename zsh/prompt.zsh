@@ -8,6 +8,7 @@ zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' unstagedstr '!'
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' formats '[%b%m]%u%c'
+zstyle ':vcs_info:*' actionformats '[%b%m]%u%c'
 zstyle ':vcs_info:git*+set-message:*' hooks git-st git-untracked
 # zstyle ':vcs_info:*+*:*' debug true
 
@@ -47,10 +48,5 @@ precmd() {
 
   vcs_info
 
-  # Only show git information when relevant
-  if [[ -z ${vcs_info_msg_0_} ]]; then
-    PROMPT="${newline}%B%F{cyan}%~%f%b${newline}%# "
-  else
-    PROMPT="${newline}%B%F{cyan}%~%f%b %F{yellow}${vcs_info_msg_0_}%f${newline}%# "
-  fi
+  PROMPT="${newline}%B%F{cyan}%~%f%b %F{yellow}${vcs_info_msg_0_}%f${newline}%# "
 }
