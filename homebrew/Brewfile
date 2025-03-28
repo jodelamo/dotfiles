@@ -72,6 +72,7 @@ cask "font-tsukimi-rounded"
 # Applications
 # ----------------------------------------------------------------------------
 cask "1password"
+cask "affinity-designer"
 cask "arc"
 cask "calibre"
 cask "chatgpt"
