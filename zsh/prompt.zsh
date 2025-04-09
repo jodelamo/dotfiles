@@ -37,8 +37,8 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st git-untracked
   ahead=${ahead_and_behind[1]}
   behind=${ahead_and_behind[2]}
 
-  (( $ahead )) && gitstatus+=( " ↑" )
-  (( $behind )) && gitstatus+=( "↓" )
+  (( $ahead )) && gitstatus+=( "⇡" )
+  (( $behind )) && gitstatus+=( "⇣" )
 
   hook_com[misc]+=${(j:/:)gitstatus}
 }
