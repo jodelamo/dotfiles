@@ -4,6 +4,11 @@ require("lazy").setup({
 	},
 
 	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+
+	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
