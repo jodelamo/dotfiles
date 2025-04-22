@@ -40,7 +40,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st git-untracked
   (( $ahead )) && gitstatus+=( "⇡" )
   (( $behind )) && gitstatus+=( "⇣" )
 
-  hook_com[misc]+=${gitstatus}
+  hook_com[misc]+=${(j::)gitstatus}
 }
 
 precmd() {
