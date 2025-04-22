@@ -37,8 +37,9 @@ done
 
 unset config_files
 
-# Enable zsh syntax highlighting
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
+# Load plugin manager
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
