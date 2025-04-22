@@ -19,13 +19,16 @@ awk -F '=' -v section="$section" '
   }
 ' "$ini_file" | while read -r dest source; do
   if [ -e "$source" ]; then
+    # All destinations should be relative to $HOME
+    absolute_dest="$HOME/$dest"
+
     # Ensure the destination directory exists
-    dest_dir=$(dirname "$dest")
+    dest_dir=$(dirname "$absolute_dest")
     mkdir -p "$dest_dir"
 
     # Create symlink
-    echo "🔗 Create symlink: $source -> $dest"
-    ln -sfn "$source" "$dest"
+    echo "🔗 Create symlink: $source -> $absolute_dest"
+    # ln -sfn "$source" "$dest"
   else
     echo "⚠️ Warning! Source does not exist: $source"
   fi
