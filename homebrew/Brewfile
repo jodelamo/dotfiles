@@ -2,7 +2,6 @@ cask_args appdir: "/Applications"
 
 # Taps
 # ----------------------------------------------------------------------------
-tap "homebrew/bundle"
 tap "moncho/dry"
 tap "neovim/neovim"
 tap "phrase/brewed"
