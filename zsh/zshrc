@@ -41,5 +41,5 @@ unset config_files
 source <(fzf --zsh)
 
 # Load plugin manager
-source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+source ${ZDOTDIR:-$HOME}/.antidote/antidote.zsh
 antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
