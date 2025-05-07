@@ -21,6 +21,9 @@
 # Node.js
 node_modules
 
+# Homebrew
+Brewfile.lock.json
+
 # Editor specific files/folders
 # ==============================================
 

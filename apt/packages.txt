@@ -1,6 +1,1 @@
 flatpak
-fzf
-git
-kitty
-neovim
-zsh

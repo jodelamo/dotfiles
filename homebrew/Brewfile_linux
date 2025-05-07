@@ -1,0 +1,53 @@
+# Taps
+# ----------------------------------------------------------------------------
+tap "neovim/neovim"
+
+# Packages
+# ----------------------------------------------------------------------------
+brew "ack"
+brew "bat"
+brew "black"
+brew "difftastic"
+brew "docker"
+brew "fff"
+brew "fzf"
+brew "gawk"
+brew "gh"
+brew "git"
+brew "git-delta"
+brew "goenv", args: ["HEAD"]
+brew "grc"
+brew "htop"
+brew "jq"
+brew "luarocks"
+brew "neovim"
+brew "nmap"
+brew "nodenv"
+brew "openconnect"
+brew "pyenv"
+brew "rbenv"
+brew "rg"
+brew "ruby-build"
+brew "rust"
+brew "stylua"
+brew "tfenv"
+brew "tree"
+brew "wget"
+brew "zellij"
+brew "zsh"
+brew "zsh-syntax-highlighting"
+
+# Fonts
+# ----------------------------------------------------------------------------
+# Monospace
+cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
+
+# Applications
+# ----------------------------------------------------------------------------
+cask "1password"
+cask "discord"
+cask "google-cloud-sdk"
+cask "kitty"
+cask "slack"
+cask "spotify"
