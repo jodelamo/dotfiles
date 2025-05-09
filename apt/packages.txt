@@ -1,1 +1,6 @@
 flatpak
+git
+kitty
+luarocks
+neovim
+zsh
