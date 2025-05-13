@@ -6,6 +6,7 @@ require("lazy").setup({
 			{ "nvim-lua/plenary.nvim", branch = "master" },
 		},
 		build = "make tiktoken",
+		opts = {},
 	},
 
 	{
