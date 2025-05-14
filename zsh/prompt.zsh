@@ -8,7 +8,7 @@ zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' unstagedstr '!'
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' formats '[%b%m]%u%c'
-zstyle ':vcs_info:*' actionformats '[%b%m]%u%c'
+zstyle ':vcs_info:*' actionformats '[%b|%a%m]%u%c'
 zstyle ':vcs_info:git*+set-message:*' hooks git-st git-untracked
 # zstyle ':vcs_info:*+*:*' debug true
 
