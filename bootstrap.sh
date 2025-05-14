@@ -19,24 +19,21 @@ fi
 awk -F '=' -v section="$section" '
   $0 ~ /^\[/ { in_section = ($0 == "[" section "]") }
   in_section && $1 !~ /^\[/ && $1 !~ /^$/ { 
-    gsub(/^[ \t]+|[ \t]+$/, "", $1);
-    gsub(/^[ \t]+|[ \t]+$/, "", $2);
-    print $1, $2;
+    gsub(/^[ \t]+|[ \t]+$/, "", $1)
+    gsub(/^[ \t]+|[ \t]+$/, "", $2)
+    print $1, $2
   }
 ' "$ini_file" | while read -r dest source; do
   if [ -e "$source" ]; then
-    # All destinations should be relative to $HOME
     absolute_source="$HOME/.dotfiles/$source"
     absolute_dest="$HOME/$dest"
 
-    # Ensure the destination directory exists
-    dest_dir=$(dirname "$absolute_dest")
-    mkdir -p $dest_dir
-
-    # Create symlink
-    echo "🔗 Create symlink: $source -> $absolute_dest"
-    ln -sfn $absolute_source $absolute_dest
-  else
-    echo "⚠️ Warning! Source does not exist: $source"
+    if [ -e "$absolute_source" ]; then
+      install -d "$(dirname "$absolute_dest")"
+      ln -sfn "$absolute_source" "$absolute_dest"
+      echo "🔗 Linked: $absolute_source -> $absolute_dest"
+    else
+      echo "⚠️  Warning: Source does not exist: $absolute_source"
+    fi
   fi
 done
