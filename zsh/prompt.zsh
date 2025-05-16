@@ -8,8 +8,8 @@ zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' unstagedstr '!'
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' formats '[%b%m]%u%c'
-zstyle ':vcs_info:*' actionformats '[%b%m]%u%c'
-zstyle ':vcs_info:git*+set-message:*' hooks git-st git-untracked git-branch
+zstyle ':vcs_info:*' actionformats '[%b]%u%c (%a)'
+zstyle ':vcs_info:git*+set-message:*' hooks git-st git-untracked
 # zstyle ':vcs_info:*+*:*' debug true
 
 # Show "?" if we have untracked files
@@ -41,22 +41,6 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st git-untracked git-branch
   (( $behind )) && gitstatus+=( "⇣" )
 
   hook_com[misc]+=${(j::)gitstatus}
-}
-
-# Nicer branch formatting when in detached HEAD state (rebase, bisect)
-+vi-git-branch() {
-  if [[ "$(git symbolic-ref -q HEAD 2>/dev/null)" == "" ]]; then
-    local rebase_path=$(git rev-parse --git-path rebase-merge 2>/dev/null)
-    local short_sha=$(git rev-parse --short HEAD 2>/dev/null)
-
-    if [[ -d "$rebase_path" || -d "$(git rev-parse --git-path rebase-apply 2>/dev/null)" ]]; then
-      # Rebasing
-      hook_com[branch]="rebase|${short_sha}"
-    else
-      # Generic detached HEAD (e.g. a bisect)
-      hook_com[branch]="detached|${short_sha}"
-    fi
-  fi
 }
 
 precmd() {
