@@ -1,3 +1,8 @@
+# Homebrew
+if [ "$(uname)" = "Linux" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 # Keep secrets in `.localrc`
 if [[ -a ~/.localrc ]] then
   source ~/.localrc
