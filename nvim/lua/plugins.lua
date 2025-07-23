@@ -195,6 +195,7 @@ require("lazy").setup({
 		opts = {
 			ensure_installed = {
 				"css",
+				"diff",
 				"go",
 				"hcl", -- tfvars
 				"html",
@@ -202,6 +203,7 @@ require("lazy").setup({
 				"json",
 				"kdl", -- zellij
 				"lua",
+				"nix",
 				"powershell",
 				"python",
 				"ruby",
