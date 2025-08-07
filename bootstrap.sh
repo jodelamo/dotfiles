@@ -9,11 +9,11 @@ if ! command -v brew &> /dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-if [ "$(uname)" = "Darwin" ]; then
-  ./bin/macos
-elif [ "$(uname)" = "Linux" ]; then
-  ./bin/linux
-fi
+# Run OS-specific setup
+case "$(uname)" in
+  Darwin) ./bin/macos ;;
+  Linux)  ./bin/linux ;;
+esac
 
 # Parse the INI file to figure out what needs to be linked
 awk -F '=' -v section="$section" '
@@ -25,15 +25,15 @@ awk -F '=' -v section="$section" '
   }
 ' "$ini_file" | while read -r dest source; do
   if [ -e "$source" ]; then
-    absolute_source="$HOME/.dotfiles/$source"
-    absolute_dest="$HOME/$dest"
+    abs_source="$HOME/.dotfiles/$source"
+    abs_dest="$HOME/$dest"
 
-    if [ -e "$absolute_source" ]; then
-      install -d "$(dirname "$absolute_dest")"
-      ln -sfn "$absolute_source" "$absolute_dest"
-      echo "🔗 Linked: $absolute_source -> $absolute_dest"
+    if [ -e "$abs_source" ]; then
+      install -d "$(dirname "$abs_dest")"
+      ln -sfn "$abs_source" "$abs_dest"
+      echo "🔗 Linked: $abs_source -> $abs_dest"
     else
-      echo "⚠️  Warning: Source does not exist: $absolute_source"
+      echo "⚠️  Warning: Source does not exist: $abs_source"
     fi
   fi
 done
