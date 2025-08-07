@@ -317,7 +317,16 @@ require("lazy").setup({
 			require("lspconfig").html.setup({})
 			require("lspconfig").ts_ls.setup({})
 			require("lspconfig").pyright.setup({})
-			require("lspconfig").yamlls.setup({})
+			require("lspconfig").yamlls.setup({
+				settings = {
+					yaml = {
+						format = { enable = true },
+						validate = { enable = true },
+						hover = { enable = true },
+						completion = { enable = true },
+					},
+				},
+			})
 			require("lspconfig").lua_ls.setup({
 				settings = {
 					Lua = {
@@ -458,7 +467,6 @@ require("lazy").setup({
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				terraform = { "terraform_fmt" },
-				yaml = { "yamlfix" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
