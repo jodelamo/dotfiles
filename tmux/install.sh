@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 DEST="$HOME/.tmux/plugins/tpm"
 
