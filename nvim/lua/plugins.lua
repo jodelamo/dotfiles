@@ -301,9 +301,9 @@ require("lazy").setup({
 			require("mason-lspconfig").setup({
 				automatic_installation = true,
 				ensure_installed = {
-					"biome",
+					-- "biome",
 					"html",
-					"ts_ls",
+					-- "ts_ls",
 					"pyright",
 					"yamlls",
 					"lua_ls",
@@ -313,9 +313,9 @@ require("lazy").setup({
 				},
 			})
 
-			require("lspconfig").biome.setup({})
+			-- require("lspconfig").biome.setup({})
 			require("lspconfig").html.setup({})
-			require("lspconfig").ts_ls.setup({})
+			-- require("lspconfig").ts_ls.setup({})
 			require("lspconfig").pyright.setup({})
 			require("lspconfig").yamlls.setup({
 				settings = {
