@@ -101,6 +101,9 @@ require("lazy").setup({
 
 	{
 		"folke/trouble.nvim",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
 		cmd = "Trouble",
 		opts = {
 			modes = {
@@ -508,10 +511,14 @@ require("lazy").setup({
 
 	{
 		"stevearc/oil.nvim",
-		config = function()
-			require("oil").setup()
-			vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-		end,
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		opts = {},
+		keys = {
+			{ "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
+		},
+		lazy = false,
 	},
 
 	{
