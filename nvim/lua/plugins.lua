@@ -20,6 +20,13 @@ require("lazy").setup({
 			strategies = {
 				chat = {
 					adapter = "copilot",
+					tools = {
+						opts = {
+							default_tools = {
+								"buffer",
+							},
+						},
+					},
 				},
 				cmd = {
 					adapter = "copilot",
@@ -94,9 +101,6 @@ require("lazy").setup({
 
 	{
 		"folke/trouble.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
 		cmd = "Trouble",
 		opts = {
 			modes = {
@@ -150,6 +154,20 @@ require("lazy").setup({
 	},
 
 	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
+	},
+
+	{
 		"mfussenegger/nvim-lint",
 		opts = {
 			linters_by_ft = {
@@ -169,6 +187,14 @@ require("lazy").setup({
 				end,
 			})
 		end,
+	},
+
+	{
+		"nvim-tree/nvim-web-devicons",
+		opts = {
+			default = true,
+			strict = true,
+		},
 	},
 
 	{
