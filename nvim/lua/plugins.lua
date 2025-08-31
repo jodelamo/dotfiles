@@ -47,6 +47,16 @@ require("lazy").setup({
 				},
 			},
 		},
+		keys = {
+			{
+				"<C-a>",
+				"<cmd>CodeCompanionActions<cr>",
+			},
+		},
+		init = function()
+			-- Expand 'cc' into 'CodeCompanion' in the command line
+			vim.cmd([[cab cc CodeCompanion]])
+		end,
 	},
 
 	{
