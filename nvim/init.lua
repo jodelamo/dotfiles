@@ -21,5 +21,5 @@ vim.diagnostic.config({
 })
 
 require("options")
-require("plugins")
 require("keymaps")
+require("lazy").setup("plugins")

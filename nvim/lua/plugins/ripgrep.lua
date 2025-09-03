@@ -1,0 +1,5 @@
+return {
+	{
+		"jremmen/vim-ripgrep",
+	},
+}
