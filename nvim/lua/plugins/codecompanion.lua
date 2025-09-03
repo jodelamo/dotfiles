@@ -16,6 +16,7 @@ return {
 						opts = {
 							default_tools = {
 								"files",
+								"mcp",
 							},
 						},
 					},
