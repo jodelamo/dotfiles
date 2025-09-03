@@ -1,8 +1,8 @@
 return {
 	{
-		"github/copilot.vim",
-		init = function()
-			vim.g.copilot_assume_mapped = true
-		end,
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = true,
 	},
 }
