@@ -1,30 +1,23 @@
 return {
 	{
-		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup()
-		end,
-	},
-
-	{
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
 			"neovim/nvim-lspconfig",
 		},
+		opts = {
+			automatic_installation = true,
+			ensure_installed = {
+				"html",
+				"pyright",
+				"yamlls",
+				"lua_ls",
+				"ruby_lsp",
+				"terraformls",
+				"v_analyzer",
+			},
+		},
 		config = function()
-			require("mason-lspconfig").setup({
-				automatic_installation = true,
-				ensure_installed = {
-					"html",
-					"pyright",
-					"yamlls",
-					"lua_ls",
-					"ruby_lsp",
-					"terraformls",
-					"v_analyzer",
-				},
-			})
-
 			require("lspconfig").html.setup({})
 			require("lspconfig").pyright.setup({})
 			require("lspconfig").yamlls.setup({
