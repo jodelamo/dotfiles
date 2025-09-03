@@ -5,7 +5,7 @@ return {
 		build = "npm install -g mcp-hub@latest",
 		opts = {
 			global_env = {
-				"MCPHUB_PAT",
+				ALLOWED_DIRECTORY = vim.fn.getcwd(),
 			},
 		},
 	},
