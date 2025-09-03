@@ -5,23 +5,19 @@ return {
 			"rafamadriz/friendly-snippets",
 			"giuxtaposition/blink-cmp-copilot",
 		},
-		version = "*",
+		version = "1.*",
 		opts = {
 			keymap = {
-				preset = "none",
-				["<Up>"] = { "select_prev", "fallback" },
-				["<Down>"] = { "select_next", "fallback" },
-				["<C-space>"] = {
-					function(cmp)
-						cmp.show({ providers = { "snippets" } })
-					end,
-				},
-			},
-			appearance = {
-				nerd_font_variant = "mono",
+				preset = "default",
 			},
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "copilot" },
+				default = {
+					"lsp",
+					"path",
+					"snippets",
+					"buffer",
+					"copilot",
+				},
 				providers = {
 					copilot = {
 						name = "copilot",
@@ -31,7 +27,24 @@ return {
 					},
 				},
 			},
+			completion = {
+				documentation = {
+					auto_show = true,
+					treesitter_highlighting = true,
+					window = {
+						border = "rounded",
+					},
+				},
+				menu = {
+					border = "rounded",
+				},
+			},
+			appearance = {
+				nerd_font_variant = "mono",
+			},
 		},
-		opts_extend = { "sources.default" },
+		opts_extend = {
+			"sources.default",
+		},
 	},
 }
