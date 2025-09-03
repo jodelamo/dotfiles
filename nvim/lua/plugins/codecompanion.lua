@@ -8,7 +8,10 @@ return {
 		opts = {
 			strategies = {
 				chat = {
-					adapter = "copilot",
+					adapter = {
+						name = "copilot",
+						model = "claude-sonnet-4",
+					},
 					tools = {
 						opts = {
 							default_tools = {
