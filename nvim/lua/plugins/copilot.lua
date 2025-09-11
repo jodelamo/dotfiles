@@ -6,7 +6,7 @@ return {
 		config = true,
 		opts = {
 			panel = {
-				enabled = true,
+				enabled = false,
 				auto_refresh = false,
 				keymap = {
 					jump_prev = "[[",
