@@ -63,7 +63,35 @@ return {
 		},
 		init = function()
 			-- Expand 'cc' into 'CodeCompanion' in the command line
-			vim.cmd([[cab cc CodeCompanion]])
+			vim.cmd([[cab cc CodeCompanion #{buffer}]])
+			vim.cmd([[cab ca CodeCompanionActions]])
+
+			-- Set up notifications for CodeCompanion events
+			local notify = require("notify")
+			local notif_title = "CodeCompanion"
+			local notif_id = nil
+
+			vim.api.nvim_create_augroup("CodeCompanionNotify", { clear = true })
+
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "CodeCompanion*",
+				group = "CodeCompanionNotify",
+				callback = function(request)
+					if request.match == "CodeCompanionRequestStarted" then
+						notif_id = notify("Crunching...", "info", {
+							title = notif_title,
+							timeout = false,
+						})
+					end
+					if request.match == "CodeCompanionRequestFinished" then
+						notify("Done!", "info", {
+							title = notif_title,
+							replace = notif_id,
+							timeout = 3000,
+						})
+					end
+				end,
+			})
 		end,
 	},
 }
