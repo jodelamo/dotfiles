@@ -32,5 +32,12 @@ return {
 				enable = true,
 			},
 		},
+		init = function()
+			vim.filetype.add({
+				extension = {
+					tfvars = "terraform",
+				},
+			})
+		end,
 	},
 }
