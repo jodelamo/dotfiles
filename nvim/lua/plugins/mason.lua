@@ -18,9 +18,12 @@ return {
 			},
 		},
 		config = function()
-			require("lspconfig").html.setup({})
-			require("lspconfig").pyright.setup({})
-			require("lspconfig").yamlls.setup({
+			vim.lsp.config("html", {})
+			vim.lsp.config("pyright", {})
+			vim.lsp.config("ruby_lsp", {})
+			vim.lsp.config("terraformls", {})
+			vim.lsp.config("v_analyzer", {})
+			vim.lsp.config("yamlls", {
 				settings = {
 					yaml = {
 						format = { enable = true },
@@ -30,7 +33,7 @@ return {
 					},
 				},
 			})
-			require("lspconfig").lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				settings = {
 					Lua = {
 						diagnostics = {
@@ -39,9 +42,6 @@ return {
 					},
 				},
 			})
-			require("lspconfig").ruby_lsp.setup({})
-			require("lspconfig").terraformls.setup({})
-			require("lspconfig").v_analyzer.setup({})
 
 			vim.o.updatetime = 250
 			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
