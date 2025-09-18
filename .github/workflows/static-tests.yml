@@ -2,13 +2,13 @@ name: Static Tests
 
 on: [push]
 
-permissions:
-  contents: read
-
 jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout Code
