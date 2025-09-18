@@ -16,7 +16,7 @@ return {
 		opts = {
 			formatters_by_ft = {
 				go = { "goimports" },
-				json = { "jq" },
+				-- json = { "jq" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				terraform = { "terraform_fmt" },
