@@ -12,7 +12,6 @@ fi
 # Run OS-specific setup
 case "$(uname)" in
   Darwin) ./bin/macos ;;
-  Linux)  ./bin/linux ;;
 esac
 
 # Parse the INI file to figure out what needs to be linked

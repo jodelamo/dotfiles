@@ -1,4 +1,0 @@
-com.discordapp.Discord
-com.obsproject.Studio
-com.slack.Slack
-com.spotify.Client
