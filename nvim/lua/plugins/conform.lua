@@ -15,6 +15,7 @@ return {
 		},
 		opts = {
 			formatters_by_ft = {
+				scss = { "stylelint" },
 				go = { "goimports" },
 				-- json = { "jq" },
 				lua = { "stylua" },
