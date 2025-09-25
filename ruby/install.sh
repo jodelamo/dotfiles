@@ -8,7 +8,7 @@ rbenv rehash
 
 installed=$(gem list | awk '{ print $1 }')
 
-gems="bundler neovim rouge rubocop"
+gems="bundler neovim rubocop"
 
 for g in $gems; do
   echo "$installed" | grep -qx "$g" || gem install "$g"
