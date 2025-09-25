@@ -54,5 +54,5 @@ precmd() {
 
   vcs_info
 
-  PROMPT="${newline}%B%F{cyan}%~%f%b %F{yellow}${vcs_info_msg_0_}%f${newline}%# "
+  PROMPT="${newline}%B%F{cyan}%~%f%b %F{yellow}${vcs_info_msg_0_}%f${newline}%(?.%F{green}.%F{red})%(!.#.▶︎)%f "
 }
