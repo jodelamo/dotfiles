@@ -8,27 +8,18 @@ return {
 		opts = {
 			automatic_enable = true,
 			ensure_installed = {
+				"biome",
 				"html",
-				"pyright",
-				"yamlls",
 				"lua_ls",
+				"pyright",
 				"ruby_lsp",
 				"stylelint-lsp",
 				"terraformls",
+				"ts_ls",
 				"v_analyzer",
+				"yamlls",
 			},
 		},
-		config = function()
-			vim.lsp.config("lua_ls", {
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
-					},
-				},
-			})
-		end,
 	},
 
 	{
