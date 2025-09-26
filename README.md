@@ -18,3 +18,17 @@ In a `zsh` shell, symlink and run installation scripts:
 ./bootstrap.sh
 ./install.sh
 ```
+
+To manually stow a specific package:
+
+```zsh
+cd ~/.dotfiles/stow-packages
+stow -t ~ package-name
+```
+
+To unstow a package:
+
+```zsh
+cd ~/.dotfiles/stow-packages  
+stow -t ~ -D package-name
+```
