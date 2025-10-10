@@ -28,6 +28,14 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd("FocusGained", {
+	desc = "Update file when there are changes",
+	group = vim.api.nvim_create_augroup("checktime", { clear = true }),
+	callback = function()
+		vim.cmd("checktime")
+	end,
+})
+
 require("options")
 require("keymaps")
 require("lazy").setup("plugins")
