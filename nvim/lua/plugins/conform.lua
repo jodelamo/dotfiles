@@ -31,6 +31,11 @@ return {
 					prepend_args = { "-i", "2" },
 				},
 			},
+
+			signature = {
+				enabled = true,
+				window = { border = "rounded" },
+			},
 		},
 	},
 }
