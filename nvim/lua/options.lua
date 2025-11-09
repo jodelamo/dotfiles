@@ -43,3 +43,5 @@ vim.opt.gdefault = true -- have :s///g flag on by default
 
 -- substitution
 vim.opt.inccommand = "nosplit" -- preview effects of substitution
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
