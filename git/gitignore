@@ -23,18 +23,3 @@ node_modules
 
 # Homebrew
 Brewfile.lock.json
-
-# Editor specific files/folders
-# ==============================================
-
-# Xcode
-*.pbxuser
-*.mode1v3
-*.mode2v3
-*.perspectivev3
-!default.pbxuser
-!default.mode1v3
-!default.mode2v3
-!default.perspectivev3
-xcuserdata
-*.moved-aside
