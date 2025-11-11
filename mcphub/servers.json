@@ -1,5 +1,14 @@
 {
   "mcpServers": {
+    "fetch": {
+      "args": [
+        "mcp-server-fetch"
+      ],
+      "autoApprove": [
+        "fetch"
+      ],
+      "command": "uvx"
+    },
     "filesystem": {
       "args": [
         "-y",
@@ -25,6 +34,7 @@
       "command": "npx"
     },
     "github": {
+      "autoApprove": [],
       "disabled": false,
       "headers": {
         "Authorization": "Bearer ${GITHUB_MCPHUB_PAT}"
