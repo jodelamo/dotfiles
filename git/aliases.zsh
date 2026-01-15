@@ -6,6 +6,14 @@ get_default_branch() {
   git symbolic-ref --short refs/remotes/origin/HEAD | sed 's@^origin/@@'
 }
 
+remove_merged_branches() {
+  local default_branch
+  default_branch=$(get_default_branch)
+  git checkout "$default_branch" || return 1
+  git fetch --prune
+  git branch --merged "$default_branch" | grep -vE "^\*| $default_branch$" | xargs -r git branch -d
+}
+
 alias g="git"
 alias ga="git add"
 alias gaa="git add --all"
@@ -27,3 +35,4 @@ alias gsh="git show"
 alias gt="git tag -l --sort=-v:refname"
 alias gundo="git reset --soft HEAD^"
 alias gl="git log --graph --oneline --decorate --all"
+alias gclean="remove_merged_branches"
