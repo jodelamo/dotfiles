@@ -71,12 +71,9 @@ cask "font-tsukimi-rounded"
 # Applications
 # ----------------------------------------------------------------------------
 cask "1password"
-cask "affinity-designer"
 cask "arc"
 cask "calibre"
-cask "chatgpt"
 cask "container"
-cask "daisydisk"
 cask "godot"
 cask "gcloud-cli"
 cask "kitty"
