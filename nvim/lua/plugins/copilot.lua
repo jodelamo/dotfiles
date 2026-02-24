@@ -19,6 +19,14 @@ return {
 					accept = "<Tab>",
 				},
 			},
+			filetypes = {
+				yaml = true,
+				markdown = true,
+				help = true,
+				gitcommit = true,
+				gitrebase = true,
+				["."] = true,
+			},
 		},
 	},
 }
