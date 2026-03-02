@@ -48,7 +48,7 @@ return {
 						add_mcp_prefix_to_tool_names = false,
 						show_result_in_chat = true,
 						format_tool = nil,
-						make_vars = true,
+						make_vars = false,
 						make_slash_commands = true,
 					},
 				},
