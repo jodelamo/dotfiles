@@ -43,3 +43,6 @@ source <(fzf --zsh)
 # Load plugin manager
 source ${ZDOTDIR:-$HOME}/.antidote/antidote.zsh
 antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
+
+# opencode
+export PATH=/Users/jorum/.opencode/bin:$PATH
