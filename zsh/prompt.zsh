@@ -1,5 +1,3 @@
-setopt promptsubst
-
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' enable git
@@ -10,7 +8,6 @@ zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' formats '[%b%m]%u%c'
 zstyle ':vcs_info:*' actionformats '[%b]%u%c (%a)'
 zstyle ':vcs_info:git*+set-message:*' hooks git-st git-untracked
-# zstyle ':vcs_info:*+*:*' debug true
 
 # Show "?" if we have untracked files
 # Ref: https://github.com/zsh-users/zsh/blob/master/Misc/vcs_info-examples#L163

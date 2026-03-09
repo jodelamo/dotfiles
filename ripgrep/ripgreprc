@@ -3,6 +3,4 @@
 --glob=!.git/*
 --smart-case
 --hidden
---files
---no-ignore-vcs
 --follow

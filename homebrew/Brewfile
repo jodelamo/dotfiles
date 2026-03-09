@@ -3,13 +3,11 @@ cask_args appdir: "/Applications"
 # Taps
 # ----------------------------------------------------------------------------
 tap "moncho/dry"
-tap "neovim/neovim"
 tap "phrase/brewed"
 tap "hashicorp/tap"
 
 # Packages
 # ----------------------------------------------------------------------------
-brew "ack"
 brew "bat"
 brew "black"
 brew "copilot-cli"

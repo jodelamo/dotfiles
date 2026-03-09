@@ -9,9 +9,11 @@ export ZSH=~/.dotfiles
 # Project folder
 export PROJECTS=~/Dev
 
-# Initialize autocomplete here, otherwise functions won't be loaded
-autoload -Uz compinit; compinit
-zmodload -i zsh/complist
+# Ensure cache directory exists (used by version manager init caching)
+[[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
+
+# Deduplicate PATH entries automatically
+typeset -U path
 
 # A better `mv`
 autoload -U zmv
@@ -30,6 +32,16 @@ for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
   source $file
 done
 
+# Initialize autocomplete AFTER fpath is fully set up
+autoload -Uz compinit
+if [[ -f "$ZSH_CACHE_DIR/.zcompdump" && "$ZSH_CACHE_DIR/.zcompdump"(#qN.mh+24) == "" ]]; then
+  # Cache is less than 24h old, use it without regenerating
+  compinit -C -d "$ZSH_CACHE_DIR/.zcompdump"
+else
+  compinit -d "$ZSH_CACHE_DIR/.zcompdump"
+fi
+zmodload -i zsh/complist
+
 # Load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}; do
   source $file
@@ -37,12 +49,15 @@ done
 
 unset config_files
 
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+# Set up fzf key bindings and fuzzy completion (cached)
+local fzf_cache="$ZSH_CACHE_DIR/fzf_init.zsh"
+if [[ ! -f "$fzf_cache" || "$commands[fzf]" -nt "$fzf_cache" ]]; then
+  fzf --zsh > "$fzf_cache" 2>/dev/null
+fi
+source "$fzf_cache"
 
-# Load plugin manager
-source ${ZDOTDIR:-$HOME}/.antidote/antidote.zsh
-antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
+# Syntax highlighting (direct source, no plugin manager needed)
+source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # opencode
 export PATH=/Users/jorum/.opencode/bin:$PATH

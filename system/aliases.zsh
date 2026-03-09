@@ -3,7 +3,6 @@ alias l="ls -lhA"
 alias ll="ls -l"
 alias la="ls -A"
 
-alias ccat="rougify"
 
 colors() {
   for i in {0..255} ; do

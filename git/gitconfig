@@ -22,11 +22,16 @@
   dft = difftool
   dlog = "!f() { : git log ; GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
 [push]
-  default = simple
+  autoSetupRemote = true
+[pull]
+  rebase = true
 [fetch]
-	prune = true
+  prune = true
 [init]
-	defaultBranch = main
+  defaultBranch = main
+[rebase]
+  autosquash = true
+  autostash = true
 [interactive]
   diffFilter = delta --color-only
 [delta]
@@ -34,10 +39,10 @@
   light = false
   line-numbers = true
 [merge]
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 [diff]
   tool = difftastic
-  external = difft
+  algorithm = histogram
 [difftool]
   prompt = false
 [difftool "difftastic"]

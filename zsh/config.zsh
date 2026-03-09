@@ -1,8 +1,6 @@
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
-fpath=($ZSH/functions $fpath)
-
 autoload -U $ZSH/functions/*(:t)
 
 HISTFILE=$XDG_CONFIG_HOME/zsh/.zsh_history
@@ -22,8 +20,7 @@ setopt CORRECT
 setopt COMPLETE_IN_WORD
 setopt IGNORE_EOF
 
-setopt APPEND_HISTORY
-setopt INC_APPEND_HISTORY SHARE_HISTORY
+setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
 
