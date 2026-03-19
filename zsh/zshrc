@@ -58,6 +58,3 @@ source "$fzf_cache"
 
 # Syntax highlighting (direct source, no plugin manager needed)
 source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-# opencode
-export PATH=/Users/jorum/.opencode/bin:$PATH
