@@ -12,6 +12,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Configure how diagnostics are displayed in Neovim
 vim.diagnostic.config({
 	virtual_text = false,
 	float = {
@@ -20,6 +21,7 @@ vim.diagnostic.config({
 	},
 })
 
+-- Show diagnostics in a floating window when the cursor is idle
 vim.o.updatetime = 250
 vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 	group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
@@ -28,6 +30,7 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 	end,
 })
 
+-- Automatically check if the file has changed on disk when Neovim regains focus
 vim.api.nvim_create_autocmd("FocusGained", {
 	desc = "Update file when there are changes",
 	group = vim.api.nvim_create_augroup("checktime", { clear = true }),
