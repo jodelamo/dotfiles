@@ -38,6 +38,9 @@ vim.opt.undoreload = 10000
 vim.opt.number = true
 vim.opt.colorcolumn = "80"
 
+-- completion
+vim.opt.completeopt = "menuone,noselect,popup"
+
 -- search
 vim.opt.gdefault = true -- have :s///g flag on by default
 
