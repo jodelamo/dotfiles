@@ -1,4 +1,8 @@
-alias ls="ls -F"
+if [[ "$(uname)" == "Darwin" ]]; then
+  alias ls="ls -F"
+elif [[ "$(uname)" == "Linux" ]]; then
+  alias ls="ls -F --color=auto"
+fi
 alias l="ls -lhA"
 alias ll="ls -l"
 alias la="ls -A"

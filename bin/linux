@@ -1,0 +1,10 @@
+#!/bin/sh
+
+export ZSH="$HOME/.dotfiles"
+
+# Install apt packages
+packages_file="$ZSH/apt/packages.txt"
+
+echo "Installing apt packages..."
+sudo apt update
+sudo apt install -y $(grep -v '^#' "$packages_file" | grep -v '^$')

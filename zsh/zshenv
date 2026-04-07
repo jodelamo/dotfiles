@@ -6,4 +6,6 @@ export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 
 # Set HOMEBREW_PREFIX early so all scripts can use it without calling `brew --prefix`
-export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
+if [[ "$(uname)" == "Darwin" ]]; then
+  export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
+fi

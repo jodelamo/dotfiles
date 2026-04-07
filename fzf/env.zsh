@@ -6,11 +6,18 @@ export FZF_CTRL_T_OPTS="
   --preview 'bat -n --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
-# CTRL-Y to copy the command into clipboard using pbcopy
-export FZF_CTRL_R_OPTS="
-  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
-  --color header:italic
-  --header 'Press CTRL-Y to copy command into clipboard'"
+# CTRL-Y to copy the command into clipboard
+if [[ "$(uname)" == "Darwin" ]]; then
+  export FZF_CTRL_R_OPTS="
+    --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+    --color header:italic
+    --header 'Press CTRL-Y to copy command into clipboard'"
+elif [[ "$(uname)" == "Linux" ]]; then
+  export FZF_CTRL_R_OPTS="
+    --bind 'ctrl-y:execute-silent(echo -n {2..} | xclip -selection clipboard)+abort'
+    --color header:italic
+    --header 'Press CTRL-Y to copy command into clipboard'"
+fi
 
 # Print tree structure in the preview window
 export FZF_ALT_C_OPTS="

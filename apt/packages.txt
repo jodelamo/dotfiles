@@ -1,0 +1,41 @@
+# Core tools
+build-essential
+curl
+git
+wget
+zsh
+
+# Shell enhancements
+fzf
+grc
+zsh-syntax-highlighting
+
+# Editors & terminal
+neovim
+tmux
+
+# Search & file tools
+bat
+fd-find
+jq
+ripgrep
+tree
+universal-ctags
+
+# System tools
+gawk
+htop
+httpie
+nmap
+xclip
+
+# ---------------------------------------------------------------
+# Not available in default Debian/Mint repos - install manually:
+#   gh          - https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+#   git-delta   - https://github.com/dandavison/delta/releases
+#   difftastic  - https://github.com/Wilfred/difftastic/releases
+#   stylua      - https://github.com/JohnnyMorganz/StyLua/releases
+#   shfmt       - https://github.com/mvdan/sh/releases
+#   ghostty     - https://ghostty.org/download
+#   zellij      - https://github.com/zellij-org/zellij/releases
+# ---------------------------------------------------------------
