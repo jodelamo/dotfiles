@@ -8,7 +8,7 @@ nodenv rehash
 
 installed=$(npm ls -g -p --depth=0 | sed '1d' | sed 's@.*/@@')
 
-packages="neovim mcp-hub@latest"
+packages="neovim mcp-hub@latest tree-sitter-cli"
 
 for p in $packages; do
   echo "$installed" | grep -qx "$p" || npm install -g "$p"
