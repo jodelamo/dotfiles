@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
         vim.cmd.packadd("nvim-treesitter")
       end
       vim.cmd(
-        "TSInstall css diff go hcl html javascript json kdl lua markdown markdown_inline nix powershell python ruby scss terraform typescript vue v yaml"
+        "TSInstall css diff go hcl html javascript json kdl lua markdown markdown_inline python ruby scss terraform typescript yaml"
       )
     end
   end,
