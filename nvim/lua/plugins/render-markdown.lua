@@ -1,6 +1,3 @@
-return {
-	{
-		"MeanderingProgrammer/render-markdown.nvim",
-		ft = { "markdown", "codecompanion" },
-	},
-}
+require("render-markdown").setup({
+	file_types = { "markdown", "codecompanion" },
+})

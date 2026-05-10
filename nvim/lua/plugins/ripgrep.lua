@@ -1,5 +1,1 @@
-return {
-	{
-		"jremmen/vim-ripgrep",
-	},
-}
+-- vim-ripgrep is a vimscript plugin, no setup needed

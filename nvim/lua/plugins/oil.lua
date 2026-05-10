@@ -1,13 +1,3 @@
-return {
-	{
-		"stevearc/oil.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		opts = {},
-		keys = {
-			{ "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
-		},
-		lazy = false,
-	},
-}
+require("oil").setup()
+
+vim.keymap.set("n", "-", "<cmd>Oil<cr>", { desc = "Open parent directory" })
