@@ -12,7 +12,6 @@ jq
 neovim
 nmap
 ripgrep
-tmux
 tree
 universal-ctags
 wget
