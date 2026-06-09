@@ -1,6 +1,6 @@
 #!/bin/sh
 
-version="1.26.1"
+version="1.26.4"
 
 goenv install "$version" --skip-existing
 goenv global "$version"
