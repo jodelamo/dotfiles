@@ -38,3 +38,4 @@ jobs:
         with:
           scandir: "."
           additional_files: "bin/macos bin/linux"
+          ignore_names: "*.zsh"
