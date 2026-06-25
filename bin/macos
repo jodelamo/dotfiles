@@ -9,7 +9,7 @@ if ! command -v brew > /dev/null 2>&1; then
 fi
 
 brewfile="$ZSH/homebrew/Brewfile"
-brew bundle --file=$brewfile
+brew bundle --file="$brewfile"
 
 # Set macOS defaults
 "$ZSH"/macos/set-defaults.sh

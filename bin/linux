@@ -7,4 +7,4 @@ packages_file="$ZSH/apt/packages.txt"
 
 echo "Installing apt packages..."
 sudo apt update
-sudo apt install -y --no-install-recommends $(grep -v '^#' "$packages_file" | grep -v '^$')
+grep -v '^#' "$packages_file" | grep -v '^$' | xargs sudo apt install -y --no-install-recommends
