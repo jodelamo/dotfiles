@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# Pre-commit hook: runs shellcheck on staged shell scripts.
+# Mirrors the CI shellcheck job configuration.
+
+if ! command -v shellcheck > /dev/null 2>&1; then
+  echo "warning: shellcheck not found, skipping lint (install it to enable local checks)"
+  exit 0
+fi
+
+# Collect staged files (added, copied, modified, renamed)
+staged=$(git diff --cached --name-only --diff-filter=ACMR)
+
+if [ -z "$staged" ]; then
+  exit 0
+fi
+
+files=""
+
+for f in $staged; do
+  case "$f" in
+    # Exclude zsh files (matches CI ignore_names)
+    *.zsh|*/zshrc|zshrc) continue ;;
+    # Include .sh files
+    *.sh) files="$files $f" ;;
+    # Include known extensionless scripts (matches CI additional_files)
+    bin/macos|bin/linux) files="$files $f" ;;
+  esac
+done
+
+if [ -z "$files" ]; then
+  exit 0
+fi
+
+# shellcheck disable=SC2086
+shellcheck $files

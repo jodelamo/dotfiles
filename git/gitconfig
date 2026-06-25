@@ -6,6 +6,7 @@
   autocrlf = input
   ignorecase = false
   pager = delta
+  hooksPath = ~/.dotfiles/hooks
 [user]
   name = Joacim de la Motte
   email = joacim.delamotte@gmail.com
