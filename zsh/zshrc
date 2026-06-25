@@ -1,5 +1,5 @@
 # Keep secrets in `.localrc`
-if [[ -a ~/.localrc ]] then
+if [[ -a ~/.localrc ]]; then
   source ~/.localrc
 fi
 
