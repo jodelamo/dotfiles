@@ -56,16 +56,6 @@ if [[ ! -f "$fzf_cache" || "$commands[fzf]" -nt "$fzf_cache" ]]; then
 fi
 source "$fzf_cache"
 
-# Syntax highlighting (direct source, no plugin manager needed)
-if [[ "$(uname)" == "Darwin" ]]; then
-  source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-elif [[ "$(uname)" == "Linux" ]]; then
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-# opencode
-export PATH=/home/jorum/.opencode/bin:$PATH
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Load antidote plugin manager
+source "${ZDOTDIR:-$HOME}/.antidote/antidote.zsh"
+antidote load
