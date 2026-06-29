@@ -61,4 +61,4 @@ source "${ZDOTDIR:-$HOME}/.antidote/antidote.zsh"
 antidote load
 
 # opencode
-export PATH=/home/jorum/.opencode/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH
