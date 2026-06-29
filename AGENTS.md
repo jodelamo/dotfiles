@@ -46,3 +46,13 @@ Run `bootstrap.sh` to apply everything:
 2. Symlinks from `config.ini`
 
 Run `install.sh` separately to execute all per-tool installers.
+
+## Commits
+
+Use [Conventional Commits](https://www.conventionalcommits.org/) for all commit messages. The format is:
+
+```
+<type>(<scope>): <description>
+```
+
+Common types: `feat`, `fix`, `docs`, `chore`, `refactor`, `style`, `test`. The scope should typically be the tool directory name (e.g. `go`, `zsh`, `node`).
