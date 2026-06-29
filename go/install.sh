@@ -3,7 +3,7 @@
 version="1.26.4"
 
 goenv install "$version" --skip-existing
-goenv global "$version"
+goenv use "$version" --global
 goenv rehash
 
 packages="github.com/ericchiang/pup@latest"
