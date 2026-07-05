@@ -1,10 +1,8 @@
 #!/bin/sh
 
 if ! command -v nodenv > /dev/null 2>&1; then
-  git clone https://github.com/nodenv/nodenv.git ~/.nodenv
-  git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
-  export PATH="$HOME/.nodenv/bin:$PATH"
-  eval "$(nodenv init -)"
+  curl -fsSL https://github.com/nodenv/nodenv-installer/raw/HEAD/bin/nodenv-installer | bash
+  $HOME/.nodenv/bin/nodenv init
 fi
 
 version="24.16.0"
