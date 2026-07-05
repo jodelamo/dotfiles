@@ -1,5 +1,12 @@
 #!/bin/sh
 
+if ! command -v nodenv > /dev/null 2>&1; then
+  git clone https://github.com/nodenv/nodenv.git ~/.nodenv
+  git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
+  export PATH="$HOME/.nodenv/bin:$PATH"
+  eval "$(nodenv init -)"
+fi
+
 version="24.16.0"
 
 nodenv install "$version" --skip-existing
