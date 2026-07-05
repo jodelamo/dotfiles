@@ -59,6 +59,3 @@ source "$fzf_cache"
 # Load antidote plugin manager
 source "${ZDOTDIR:-$HOME}/.antidote/antidote.zsh"
 antidote load
-
-# opencode
-export PATH=$HOME/.opencode/bin:$PATH
