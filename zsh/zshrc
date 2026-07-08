@@ -3,8 +3,7 @@ if [[ -a ~/.localrc ]]; then
   source ~/.localrc
 fi
 
-# Shortcut to this dotfiles path is $ZSH
-export ZSH=~/.dotfiles
+# $ZSH is set in zshenv, derived from the repository's actual location.
 
 # Project folder
 export PROJECTS=~/Dev

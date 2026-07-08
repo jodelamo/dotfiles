@@ -1,15 +1,18 @@
 #!/bin/sh
 
-ini_file="config.ini"
+# Resolve the repository root based on this script's location
+repo_root="$(cd "$(dirname -- "$0")" && pwd)"
+
+ini_file="$repo_root/config.ini"
 section="links"
 
 # Run OS-specific setup
 case "$(uname)" in
   Darwin)
-    ./bin/macos
+    "$repo_root/bin/macos"
     ;;
   Linux)
-    ./bin/linux
+    "$repo_root/bin/linux"
     ;;
 esac
 
@@ -22,7 +25,7 @@ awk -F '=' -v section="$section" '
     print $1, $2
   }
 ' "$ini_file" | while read -r dest source; do
-  abs_source="$HOME/.dotfiles/$source"
+  abs_source="$repo_root/$source"
   abs_dest="$HOME/$dest"
 
   if [ -e "$abs_source" ]; then

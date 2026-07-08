@@ -1,6 +1,7 @@
 #!/bin/sh
 
-export ZSH="$HOME/.dotfiles"
+ZSH="$(cd "$(dirname -- "$0")/.." && pwd)"
+export ZSH
 
 # Install apt packages
 packages_file="$ZSH/apt/packages.txt"
