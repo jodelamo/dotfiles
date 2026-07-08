@@ -6,15 +6,16 @@ Not really intended for use by anyone else.
 
 ## Usage
 
-Clone the repository:
+Clone the repository to any directory - for example:
 
 ```zsh
 git clone git@github.com:jodelamo/dotfiles.git ~/.dotfiles
 ```
 
-In a `zsh` shell, symlink and run installation scripts:
+Change into the cloned directory, then symlink and run installation scripts:
 
 ```zsh
+cd ~/.dotfiles
 ./bootstrap.sh
 ./install.sh
 ```
