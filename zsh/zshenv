@@ -7,7 +7,7 @@ export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 
 # Resolve the dotfiles repository root from this file's location.
 # ~/.zshenv is symlinked to <repo>/zsh/zshenv.
-export ZSH="${0:A:h:h}"
+export ZSH="${${(%):-%x}:A:h:h}"
 
 # Set HOMEBREW_PREFIX early so all scripts can use it without calling `brew --prefix`
 if [[ "$(uname)" == "Darwin" ]]; then
