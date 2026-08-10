@@ -5,7 +5,7 @@ if ! command -v nodenv > /dev/null 2>&1; then
   $HOME/.nodenv/bin/nodenv init
 fi
 
-version="24.16.0"
+version="24.18.0"
 
 nodenv install "$version" --skip-existing
 nodenv global "$version"
