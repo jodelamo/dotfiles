@@ -2,7 +2,7 @@
 
 if ! command -v nodenv > /dev/null 2>&1; then
   curl -fsSL https://github.com/nodenv/nodenv-installer/raw/HEAD/bin/nodenv-installer | bash
-  $HOME/.nodenv/bin/nodenv init
+  "$HOME"/.nodenv/bin/nodenv init
 fi
 
 version="24.18.0"
