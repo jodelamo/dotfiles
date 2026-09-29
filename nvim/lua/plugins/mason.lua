@@ -15,7 +15,7 @@ return {
 				"lua_ls",
 				"pyright",
 				"ruby_lsp",
-				"stylelint_lsp",
+				"stylelint_language_server",
 				"terraformls",
 				"ts_ls",
 				"v_analyzer",
