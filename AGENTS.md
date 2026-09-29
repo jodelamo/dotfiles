@@ -55,4 +55,4 @@ Use [Conventional Commits](https://www.conventionalcommits.org/) for all commit 
 <type>(<scope>): <description>
 ```
 
-Common types: `feat`, `fix`, `docs`, `chore`, `refactor`, `style`, `test`. The scope should typically be the tool directory name (e.g. `go`, `zsh`, `node`).
+Common types: `feat`, `fix`, `docs`, `chore`, `refactor`, `style`, `test`. The scope should normally be the section (top-level directory) where the change is made, e.g. `chore(homebrew): ...` for changes in `homebrew/`.
