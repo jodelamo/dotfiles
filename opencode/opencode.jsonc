@@ -1,22 +1,64 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "permission": {
-    "bash": {
-      "*": "allow",
-      "git push*": "ask"
-    }
-  },
-  "provider": {
+  "permissions": [
+    { "action": "shell", "resource": "*", "effect": "allow" },
+    { "action": "shell", "resource": "git push*", "effect": "ask" }
+  ],
+  "providers": {
     "ollama": {
-      "npm": "@ai-sdk/openai-compatible",
+      "package": "@opencode/ai/providers/openai-compatible",
       "name": "Ollama (local)",
-      "options": {
+      "settings": {
         "baseURL": "http://localhost:11434/v1"
       },
       "models": {
         "llama3.1": {
           "name": "Llama 3.1"
         }
+      }
+    }
+  },
+  "mcp": {
+    "servers": {
+      "github": {
+        "type": "remote",
+        "url": "https://api.githubcopilot.com/mcp/",
+        "disabled": false,
+        "codemode": false,
+        "oauth": false,
+        "headers": {
+          "Authorization": "Bearer {env:GITHUB_MCP_PERSONAL_ACCESS_TOKEN}"
+        }
+      },
+      "atlassian": {
+        "type": "local",
+        "disabled": false,
+        "codemode": false,
+        "environment": {
+          "JIRA_PERSONAL_TOKEN": "{env:JIRA_PERSONAL_TOKEN}",
+          "CONFLUENCE_PERSONAL_TOKEN": "{env:CONFLUENCE_PERSONAL_TOKEN}"
+        },
+        "command": [
+          "docker",
+          "run",
+          "-i",
+          "--rm",
+          "-e",
+          "JIRA_URL=https://jira.digital.ingka.com/",
+          "-e",
+          "CONFLUENCE_URL=https://confluence.build.ingka.ikea.com/",
+          "-e",
+          "CONFLUENCE_USERNAME=joacim.delamotte@ingka.ikea.com",
+          "-e",
+          "CONFLUENCE_PERSONAL_TOKEN",
+          "-e",
+          "JIRA_PERSONAL_TOKEN",
+          "-e",
+          "JIRA_PROJECTS_FILTER=WEB",
+          "-e",
+          "ENABLED_TOOLS=jira_get_issue,jira_create_issue,jira_update_issue,confluence_get_page",
+          "ghcr.io/sooperset/mcp-atlassian:latest"
+        ]
       }
     }
   }
