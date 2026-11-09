@@ -66,7 +66,6 @@ cask "font-tsukimi-rounded"
 # Applications
 # ----------------------------------------------------------------------------
 cask "1password"
-cask "arc"
 cask "calibre"
 cask "gcloud-cli"
 cask "ghostty"
@@ -75,3 +74,4 @@ cask "obsidian"
 cask "rocket"
 cask "slack"
 cask "spotify"
+cask "thebrowsercompany-dia"
