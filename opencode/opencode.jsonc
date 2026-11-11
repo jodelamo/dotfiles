@@ -59,6 +59,10 @@
           "ENABLED_TOOLS=jira_get_issue,jira_create_issue,jira_update_issue,confluence_get_page",
           "ghcr.io/sooperset/mcp-atlassian:latest"
         ]
+      },
+      "wiz": {
+        "type": "remote",
+        "url": "https://mcp.app.wiz.io/"
       }
     }
   }
